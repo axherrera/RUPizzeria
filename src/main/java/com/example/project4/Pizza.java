@@ -12,11 +12,35 @@ public abstract class Pizza implements Customizable{
 
     @Override
     public boolean add(Object obj) {
+        if(obj instanceof Topping)
+            return toppings.add((Topping)obj);
         return false;
     }
 
     @Override
     public boolean remove(Object obj) {
+        if(obj instanceof Topping)
+            return toppings.remove(obj);
         return false;
+    }
+
+    public Size getSize() {
+        return size;
+    }
+
+    public void setSize(Size size) {
+        this.size = size;
+    }
+
+    public Crust getCrust() {
+        return crust;
+    }
+
+    public void setCrust(Crust crust) {
+        this.crust = crust;
+    }
+
+    public int getNumToppings(){
+        return toppings.size();
     }
 }

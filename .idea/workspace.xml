@@ -4,31 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="94beb78b-c834-418d-87ea-4ba963e59ab8" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/project4/ChicagoPizza.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/project4/Crust.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/project4/Customizable.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/project4/HelloApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/project4/HelloController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/project4/NYPizza.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/project4/Order.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/project4/Pizza.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/project4/PizzaFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/project4/Size.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/project4/StoreOrder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/project4/Topping.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/project4/hello-view.fxml" afterDir="false" />
+    <list default="true" id="94beb78b-c834-418d-87ea-4ba963e59ab8" name="Changes" comment="First Commit: Created all classes, interfaces, and enumerations needed for project. jfx file still default. also missing controllers and launcher.">
+      <change afterPath="$PROJECT_DIR$/src/main/chicago.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/project4/BBQ.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/project4/BYO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/project4/Deluxe.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/project4/Meatzza.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/project4/Style.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/project4/homePageController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/nyc.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/pizzeria.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/project4/home-page.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/project4/ny-style-page.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/shoppingcart.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project4/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project4/HelloApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project4/HelloController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project4/NYPizza.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project4/NYPizza.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project4/Pizza.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project4/Pizza.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project4/Topping.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project4/Topping.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/project4/hello-view.fxml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,8 +34,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Enum" />
         <option value="Class" />
+        <option value="Enum" />
+        <option value="FxmlFile" />
       </list>
     </option>
   </component>
@@ -51,13 +47,16 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2HY2wYTpivk3lY91LEbM1W811FN" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
@@ -76,8 +75,16 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1668447937952</updated>
-      <workItem from="1668447939170" duration="5196000" />
+      <workItem from="1668447939170" duration="17409000" />
     </task>
+    <task id="LOCAL-00001" summary="First Commit: Created all classes, interfaces, and enumerations needed for project. jfx file still default. also missing controllers and launcher.">
+      <created>1668548555976</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1668548555976</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -93,5 +100,10 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="First Commit: Created all classes, interfaces, and enumerations needed for project. jfx file still default. also missing controllers and launcher." />
+    <option name="LAST_COMMIT_MESSAGE" value="First Commit: Created all classes, interfaces, and enumerations needed for project. jfx file still default. also missing controllers and launcher." />
   </component>
 </project>

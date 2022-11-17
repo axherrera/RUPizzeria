@@ -7,7 +7,7 @@ public enum Topping {
     ONION("Onion"),
     MUSHROOM("Mushroom"),
     BBQCHICKEN("BBQ Chicken"),
-    PROVALONE("Provalone"),
+    PROVOLONE("Provolone"),
     CHEDDAR("Cheddar"),
     BEEF("Beef"),
     HAM("Ham"),
