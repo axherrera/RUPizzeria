@@ -4,26 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="94beb78b-c834-418d-87ea-4ba963e59ab8" name="Changes" comment="First Commit: Created all classes, interfaces, and enumerations needed for project. jfx file still default. also missing controllers and launcher.">
-      <change afterPath="$PROJECT_DIR$/src/main/chicago.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/project4/BBQ.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/project4/BYO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/project4/Deluxe.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/project4/Meatzza.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/project4/Style.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/project4/homePageController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/nyc.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/pizzeria.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/project4/home-page.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/project4/ny-style-page.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/shoppingcart.png" afterDir="false" />
+    <list default="true" id="94beb78b-c834-418d-87ea-4ba963e59ab8" name="Changes" comment="Added Pizza styles and fxml files">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project4/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project4/HelloApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project4/HelloController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project4/NYPizza.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project4/NYPizza.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project4/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project4/Order.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project4/Pizza.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project4/Pizza.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project4/Topping.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project4/Topping.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/project4/hello-view.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project4/StoreOrder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project4/StoreOrder.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,19 +39,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -76,6 +61,7 @@
       <option name="presentableId" value="Default" />
       <updated>1668447937952</updated>
       <workItem from="1668447939170" duration="17409000" />
+      <workItem from="1668713707108" duration="1823000" />
     </task>
     <task id="LOCAL-00001" summary="First Commit: Created all classes, interfaces, and enumerations needed for project. jfx file still default. also missing controllers and launcher.">
       <created>1668548555976</created>
@@ -84,7 +70,14 @@
       <option name="project" value="LOCAL" />
       <updated>1668548555976</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Added Pizza styles and fxml files">
+      <created>1668713824676</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1668713824676</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -104,6 +97,7 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="First Commit: Created all classes, interfaces, and enumerations needed for project. jfx file still default. also missing controllers and launcher." />
-    <option name="LAST_COMMIT_MESSAGE" value="First Commit: Created all classes, interfaces, and enumerations needed for project. jfx file still default. also missing controllers and launcher." />
+    <MESSAGE value="Added Pizza styles and fxml files" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Pizza styles and fxml files" />
   </component>
 </project>

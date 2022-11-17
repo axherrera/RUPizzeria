@@ -10,6 +10,16 @@ public abstract class Pizza implements Customizable{
 
     public abstract double price();
 
+    /*
+    TODO Methods
+    - to string class (watch the demo to see what to string look like
+        -pizza type (ny /chicago)
+        - pizza size
+        -pizza style ( bbq/del/byo/ meatzza
+        -toppings
+        - price
+     */
+
     @Override
     public boolean add(Object obj) {
         if(obj instanceof Topping)
