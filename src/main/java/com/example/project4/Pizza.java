@@ -7,31 +7,24 @@ public abstract class Pizza implements Customizable{
     private ArrayList<Topping> toppings;
     private Crust crust;
     private Size size;
+    Meatzza meatzza = new Meatzza();
+    public Pizza() {
+
+    }
 
     public abstract double price();
 
-    /*
-    TODO Methods
-    - to string class (watch the demo to see what to string look like
-        -pizza type (ny /chicago)
-        - pizza size
-        -pizza style ( bbq/del/byo/ meatzza
-        -toppings
-        - price
-     */
-
-    @Override
-    public boolean add(Object obj) {
-        if(obj instanceof Topping)
-            return toppings.add((Topping)obj);
-        return false;
+    public Pizza(Crust crust, Size size) {
+        this.crust = crust;
+        this.size = size;
     }
 
-    @Override
-    public boolean remove(Object obj) {
-        if(obj instanceof Topping)
-            return toppings.remove(obj);
-        return false;
+    public Meatzza getMeatzza() {
+        return meatzza;
+    }
+
+    public void setMeatzza(Meatzza meatzza) {
+        this.meatzza = meatzza;
     }
 
     public Size getSize() {
@@ -53,4 +46,24 @@ public abstract class Pizza implements Customizable{
     public int getNumToppings(){
         return toppings.size();
     }
+    @Override
+    public boolean add(Object obj) {
+        if(obj instanceof Topping)
+            return toppings.add((Topping)obj);
+        return false;
+    }
+
+    @Override
+    public boolean remove(Object obj) {
+        if(obj instanceof Topping)
+            return toppings.remove(obj);
+        return false;
+    }
+
+    @Override
+    public String toString() {
+        return meatzza + "(" + crust + ")" + ", " + toppings + " , " + size + ", " + price();
+    }
+
+
 }
