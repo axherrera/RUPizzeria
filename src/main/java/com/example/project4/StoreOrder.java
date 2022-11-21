@@ -9,6 +9,10 @@ public class StoreOrder implements Customizable{
 
     private ArrayList<Order> orders;
 
+    public StoreOrder() {
+        this.orders = new ArrayList<>();
+    }
+
     /* TODO Methods
 //    -implement the add and remove for adding and removing orders from arraylist
 

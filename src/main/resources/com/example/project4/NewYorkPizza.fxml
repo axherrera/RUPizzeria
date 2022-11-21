@@ -23,8 +23,8 @@
       </Label>
       <ListView fx:id="opList" editable="true" layoutX="76.0" layoutY="318.0" prefHeight="196.0" prefWidth="179.0" />
       <ListView fx:id="selList" editable="true" layoutX="350.0" layoutY="318.0" prefHeight="196.0" prefWidth="179.0" />
-      <Button layoutX="275.0" layoutY="390.0" mnemonicParsing="false" onAction="#addTopping" text="--&gt;" />
-      <Button layoutX="275.0" layoutY="416.0" mnemonicParsing="false" onAction="#remTopping" text="&lt;--" />
+      <Button fx:id="addToppingButton" layoutX="275.0" layoutY="390.0" mnemonicParsing="false" onAction="#addTopping" text="--&gt;" />
+      <Button fx:id="remToppingButton" layoutX="275.0" layoutY="416.0" mnemonicParsing="false" onAction="#remTopping" text="&lt;--" />
       <ImageView fx:id="nyPizzaImage" fitHeight="150.0" fitWidth="200.0" layoutX="350.0" layoutY="139.0" pickOnBounds="true" preserveRatio="true" />
       <ComboBox fx:id="pizzaSyle" layoutX="73.0" layoutY="157.0" onAction="#styleSelection" prefWidth="150.0" />
       <Label layoutX="76.0" layoutY="108.0" text="Pizza Style">
@@ -49,7 +49,7 @@
          <children>
             <AnchorPane prefHeight="200.0" prefWidth="200.0">
                <children>
-                  <RadioButton fx:id="smallPizza" layoutX="24.0" layoutY="5.0" mnemonicParsing="false" text="small">
+                  <RadioButton fx:id="smallPizza" layoutX="24.0" layoutY="5.0" mnemonicParsing="false" onAction="#changeSize" text="small">
                      <toggleGroup>
                         <ToggleGroup fx:id="pizzaSize" />
                      </toggleGroup>
@@ -58,12 +58,12 @@
             </AnchorPane>
             <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
                <children>
-                  <RadioButton fx:id="mediumPizza" layoutX="16.0" layoutY="5.0" mnemonicParsing="false" selected="true" text="medium" toggleGroup="$pizzaSize" />
+                  <RadioButton fx:id="mediumPizza" layoutX="16.0" layoutY="5.0" mnemonicParsing="false" onAction="#changeSize" selected="true" text="medium" toggleGroup="$pizzaSize" />
                </children>
             </AnchorPane>
             <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2">
                <children>
-                  <RadioButton fx:id="largePizza" layoutX="14.0" layoutY="5.0" mnemonicParsing="false" text="large" toggleGroup="$pizzaSize" />
+                  <RadioButton fx:id="largePizza" layoutX="14.0" layoutY="5.0" mnemonicParsing="false" onAction="#changeSize" text="large" toggleGroup="$pizzaSize" />
                </children>
             </AnchorPane>
          </children>

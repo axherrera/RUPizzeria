@@ -4,32 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="94beb78b-c834-418d-87ea-4ba963e59ab8" name="Changes" comment="TouchUps">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/project4/HomePageController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/project4/NYPizzaController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/project4/RUPizzaMain.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/project4/ChicagoPizza.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/project4/CurrentOrder.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/project4/HomePage.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/project4/NewYorkPizza.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/project4/StoreOrders.fxml" afterDir="false" />
+    <list default="true" id="94beb78b-c834-418d-87ea-4ba963e59ab8" name="Changes" comment="Changes to NY Pizza Page. Not yet complete.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/chicago.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/chicago.jpeg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project4/BBQ.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project4/BBQ.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project4/BYO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project4/BYO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project4/Deluxe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project4/Deluxe.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project4/HelloApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project4/HomePageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project4/HomePageController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project4/Meatzza.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project4/Meatzza.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project4/Pizza.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project4/Pizza.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project4/Style.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project4/Style.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project4/Topping.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project4/Topping.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project4/homePageController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/nyc.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/nyc.jpeg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/pizzeria.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/pizzeria.jpeg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/project4/home-page.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/project4/ny-style-page.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/shoppingcart.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/shoppingcart.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project4/NYPizzaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project4/NYPizzaController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project4/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project4/Order.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project4/Size.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project4/Size.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/project4/NewYorkPizza.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/project4/NewYorkPizza.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,7 +78,7 @@
       <option name="presentableId" value="Default" />
       <updated>1668447937952</updated>
       <workItem from="1668447939170" duration="17409000" />
-      <workItem from="1668995284268" duration="13218000" />
+      <workItem from="1668995284268" duration="19726000" />
     </task>
     <task id="LOCAL-00001" summary="First Commit: Created all classes, interfaces, and enumerations needed for project. jfx file still default. also missing controllers and launcher.">
       <created>1668548555976</created>
@@ -103,7 +87,14 @@
       <option name="project" value="LOCAL" />
       <updated>1668548555976</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Changes to NY Pizza Page. Not yet complete.">
+      <created>1669056700086</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1669056700086</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -124,7 +115,8 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="First Commit: Created all classes, interfaces, and enumerations needed for project. jfx file still default. also missing controllers and launcher." />
     <MESSAGE value="TouchUps" />
-    <option name="LAST_COMMIT_MESSAGE" value="TouchUps" />
+    <MESSAGE value="Changes to NY Pizza Page. Not yet complete." />
+    <option name="LAST_COMMIT_MESSAGE" value="Changes to NY Pizza Page. Not yet complete." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -149,6 +141,10 @@
           <line>39</line>
           <option name="timeStamp" value="8" />
         </line-breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.NullPointerException" package="java.lang" />
+          <option name="timeStamp" value="12" />
+        </breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

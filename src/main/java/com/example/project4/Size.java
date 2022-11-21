@@ -11,6 +11,15 @@ public enum Size {
         this.size = size;
     }
 
+    public static Size idSize(String s){
+        s = s.toLowerCase();
+        return switch (s) {
+            case "small" -> Size.SMALL;
+            case "medium" -> Size.MEDIUM;
+            case "large" -> Size.LARGE;
+            default -> Size.MEDIUM;
+        };
+    }
     public String getSize(){
         return size;
     }

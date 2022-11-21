@@ -13,6 +13,19 @@ public class BBQ extends Pizza{
 
     @Override
     public double price() {
-        return 0;
+        switch (getSize()){
+            case SMALL -> {
+                return 13.99;
+            }
+            case MEDIUM -> {
+                return 15.99;
+            }
+            case LARGE -> {
+                return 17.99;
+            }
+            default -> {
+                return 0.00;
+            }
+        }
     }
 }

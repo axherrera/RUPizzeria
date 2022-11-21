@@ -5,14 +5,14 @@ import java.util.ArrayList;
 public class Order implements Customizable{
 
     private ArrayList<Pizza> orders;
-    private boolean orderTotal;
+    private double orderTotal;
     private int orderNum;
     private double price;
 
-    public Order(boolean orderTotal, int orderNum, double price) {
-        this.orderTotal = orderTotal;
+    public Order(int orderNum) {
+        this.orders = new ArrayList<>();
+        this.orderTotal = 0.00;
         this.orderNum = orderNum;
-        this.price = price;
     }
 
     /* TODO  Methods to implement
@@ -30,11 +30,11 @@ public class Order implements Customizable{
         this.orders = orders;
     }
 
-    public boolean isOrderTotal() {
+    public double isOrderTotal() {
         return orderTotal;
     }
 
-    public void setOrderTotal(boolean orderTotal) {
+    public void setOrderTotal(double orderTotal) {
         this.orderTotal = orderTotal;
     }
 

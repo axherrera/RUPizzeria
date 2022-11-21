@@ -9,14 +9,12 @@ package com.example.project4;
         import javafx.event.ActionEvent;
         import javafx.fxml.FXML;
         import javafx.fxml.Initializable;
-        import javafx.scene.control.ComboBox;
-        import javafx.scene.control.ListView;
-        import javafx.scene.control.RadioButton;
-        import javafx.scene.control.TextField;
-        import javafx.scene.control.ToggleGroup;
+        import javafx.scene.control.*;
         import javafx.scene.image.ImageView;
 
         import java.net.URL;
+        import java.util.ArrayList;
+        import java.util.Arrays;
         import java.util.ResourceBundle;
 
 public class NYPizzaController implements Initializable {
@@ -33,13 +31,9 @@ public class NYPizzaController implements Initializable {
 
 
     @FXML
+    private Button addToppingButton, remToppingButton;
+    @FXML
     private TextField crustType;
-
-    @FXML
-    private RadioButton largePizza;
-
-    @FXML
-    private RadioButton mediumPizza;
 
     @FXML
     private ImageView nyPizzaImage;
@@ -60,7 +54,7 @@ public class NYPizzaController implements Initializable {
     private ListView<Topping> selList;
 
     @FXML
-    private RadioButton smallPizza;
+    private RadioButton smallPizza, mediumPizza, largePizza;
 
     private ObservableList<Topping> toppings;
     private ObservableList<Topping> selected;
@@ -69,21 +63,14 @@ public class NYPizzaController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         toppings = FXCollections.observableArrayList(Topping.getAll());
         selected = FXCollections.observableArrayList();
-        selList.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Topping>() {
-            @Override
-            public void changed(ObservableValue<? extends Topping> observableValue, Topping topping, Topping t1) {
-
-            }
-        });
-
-        factory = new NYPizza();
-        currentPizza = factory.createBuildYourOwn();
-
         opList.setItems(toppings);
         selList.setItems(selected);
-        pizzaSyle.setValue(Style.BYO);
         pizzaSyle.getItems().addAll(styleOptions);
 
+        factory = new NYPizza();
+        pizzaSyle.setValue(Style.DELUXE);
+
+        updatePage(Style.DELUXE);
     }
 
     @FXML
@@ -93,38 +80,97 @@ public class NYPizzaController implements Initializable {
 
     @FXML
     void addTopping(ActionEvent event) {
-
+        Topping t = opList.getSelectionModel().getSelectedItem();
+        if(t==null)
+            return;
+        selList.getItems().add(t);
+        currentPizza.add(t);
+        opList.getItems().remove(t);
+        pizzaPrice.setText(Double.toString(currentPizza.price()));
+        if(currentPizza.getNumToppings()==7)
+            addToppingButton.setDisable(true);
     }
 
     @FXML
     void remTopping(ActionEvent event) {
+        Topping t = selList.getSelectionModel().getSelectedItem();
+        if(t==null)
+            return;
+        selList.getItems().remove(t);
+        currentPizza.remove(t);
+        opList.getItems().add(t);
+        pizzaPrice.setText(Double.toString(currentPizza.price()));
+        if(currentPizza.getNumToppings()<7)
+            addToppingButton.setDisable(false);
+    }
 
+    @FXML
+    void changeSize(ActionEvent event) {
+        currentPizza.setSize(
+                Size.idSize(((RadioButton)pizzaSize.getSelectedToggle()).getText())
+        );
+        pizzaPrice.setText(Double.toString(currentPizza.price()));
     }
 
     @FXML
     void styleSelection(ActionEvent event) {
         Style currentSelection = pizzaSyle.getValue();
         switch (currentSelection){
+            case DELUXE -> updatePage(Style.DELUXE);
+
+            case BBQ -> updatePage(Style.BBQ);
+
+            case MEATZZA -> updatePage(Style.MEATZZA);
+
+            case BYO -> updatePage(Style.BYO);
+        }
+    }
+
+    void updatePage(Style style){
+        switch (style){
             case DELUXE -> {
                 currentPizza = factory.createDeluxe();
                 selected = FXCollections.observableArrayList(Topping.getDeluxe());
+                disableButtons();
             }
             case BBQ -> {
                 currentPizza = factory.createBBQChicken();
                 selected = FXCollections.observableArrayList(Topping.getBBQ());
+                disableButtons();
             }
             case MEATZZA -> {
                 currentPizza = factory.createMeatzza();
                 selected = FXCollections.observableArrayList(Topping.getMeatzza());
+                disableButtons();
             }
+            case BYO -> {
+                currentPizza = factory.createBuildYourOwn();
+                selected = FXCollections.observableArrayList(new ArrayList<>());
+                enableButtons();
+            }
+            default -> factory.createBuildYourOwn();
         }
-
+        currentPizza.setSize(
+                Size.idSize(((RadioButton)pizzaSize.getSelectedToggle()).getText())
+        );
+        selList.setItems(selected);
+        selected = FXCollections.observableArrayList(Topping.getDeluxe());
+        crustType.setText(currentPizza.getCrust().toString());
+        pizzaPrice.setText(Double.toString(currentPizza.price()));
     }
 
-    void updatePage(Style style){
-
+    void disableButtons (){
+        addToppingButton.setDisable(true);
+        remToppingButton.setDisable(true);
+        selList.setDisable(true);
+        opList.setDisable(true);
     }
 
-
+    void enableButtons (){
+        addToppingButton.setDisable(false);
+        remToppingButton.setDisable(false);
+        selList.setDisable(false);
+        opList.setDisable(false);
+    }
 }
 
