@@ -5,6 +5,7 @@ public class Deluxe extends Pizza{
     private final Topping[] toppings = {Topping.SAUSAGE, Topping.GREENPEPPER, Topping.MUSHROOM, Topping.ONION, Topping.PEPPERONI};
 
     public Deluxe(){
+        super();
         for (Topping t : toppings)
                 this.add(t);
     }

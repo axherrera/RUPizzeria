@@ -1,12 +1,15 @@
 package com.example.project4;
 
+import java.util.ArrayList;
+
 public class Meatzza extends Pizza{
-    public Meatzza(Crust crust, Size size) {
-        super(crust, size);
-    }
+
+    private final ArrayList<Topping> toppings = Topping.getMeatzza();
 
     public Meatzza() {
         super();
+        for (Topping t : toppings)
+            this.add(t);
     }
 
     @Override

@@ -7,24 +7,11 @@ public abstract class Pizza implements Customizable{
     private ArrayList<Topping> toppings;
     private Crust crust;
     private Size size;
-    Meatzza meatzza = new Meatzza();
-    public Pizza() {
-
-    }
 
     public abstract double price();
 
-    public Pizza(Crust crust, Size size) {
-        this.crust = crust;
-        this.size = size;
-    }
-
-    public Meatzza getMeatzza() {
-        return meatzza;
-    }
-
-    public void setMeatzza(Meatzza meatzza) {
-        this.meatzza = meatzza;
+    public Pizza() {
+        this.toppings = new ArrayList<>();
     }
 
     public Size getSize() {
@@ -60,10 +47,10 @@ public abstract class Pizza implements Customizable{
         return false;
     }
 
-    @Override
-    public String toString() {
-        return meatzza + "(" + crust + ")" + ", " + toppings + " , " + size + ", " + price();
-    }
+//    @Override
+//    public String toString() {
+//        return "(" + crust + ")" + ", " + toppings + " , " + size + ", " + price();
+//    }
 
    /*
     TODO Methods
