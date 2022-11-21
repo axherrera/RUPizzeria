@@ -65,5 +65,13 @@ public abstract class Pizza implements Customizable{
         return meatzza + "(" + crust + ")" + ", " + toppings + " , " + size + ", " + price();
     }
 
-
+   /*
+    TODO Methods
+    - to string class (watch the demo to see what to string look like
+        -pizza type (ny /chicago)
+//        - pizza size
+        -pizza style ( bbq/del/byo/ meatzza
+//        -toppings
+        - price
+     */
 }

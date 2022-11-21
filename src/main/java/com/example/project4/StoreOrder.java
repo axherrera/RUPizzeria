@@ -1,5 +1,8 @@
 package com.example.project4;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
 import java.util.ArrayList;
 
 public class StoreOrder implements Customizable{
@@ -12,7 +15,23 @@ public class StoreOrder implements Customizable{
     - export method which saves all orders into a file
         - lookup how to create and write into a file java
      */
-
+    public void export(){
+        try {
+            String s  = "RUPizza";
+            String path = "file.txt";
+            File file = new File(path);
+            if(!file.exists()){
+                file.createNewFile();
+            }
+            FileWriter filewriter = new FileWriter(file.getAbsoluteFile());
+            BufferedWriter buffwriter = new BufferedWriter(filewriter);
+            buffwriter.write(s);
+            buffwriter.close();
+        }
+        catch (Exception e){
+            System.out.println(e);
+        }
+    }
     @Override
     public boolean add(Object obj) {
         boolean flag = false;
