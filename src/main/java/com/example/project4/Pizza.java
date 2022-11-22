@@ -7,11 +7,25 @@ public abstract class Pizza implements Customizable{
     private ArrayList<Topping> toppings;
     private Crust crust;
     private Size size;
+    private double price;
+    Meatzza meatzza = new Meatzza();
+    public Pizza() {
+
+    }
 
     public abstract double price();
 
-    public Pizza() {
-        this.toppings = new ArrayList<>();
+    public Pizza(Crust crust, Size size) {
+        this.crust = crust;
+        this.size = size;
+    }
+
+    public Meatzza getMeatzza() {
+        return meatzza;
+    }
+
+    public void setMeatzza(Meatzza meatzza) {
+        this.meatzza = meatzza;
     }
 
     public Size getSize() {
@@ -33,6 +47,9 @@ public abstract class Pizza implements Customizable{
     public int getNumToppings(){
         return toppings.size();
     }
+    public double getPrice() {
+        return price;
+    }
     @Override
     public boolean add(Object obj) {
         if(obj instanceof Topping)
@@ -47,10 +64,12 @@ public abstract class Pizza implements Customizable{
         return false;
     }
 
-//    @Override
-//    public String toString() {
-//        return "(" + crust + ")" + ", " + toppings + " , " + size + ", " + price();
-//    }
+    @Override
+    public String toString() {
+        return meatzza + "(" + crust + ")" + ", " + toppings + " , " + size + ", " + price();
+    }
+
+
 
    /*
     TODO Methods
