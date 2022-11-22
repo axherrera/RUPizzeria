@@ -4,16 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="94beb78b-c834-418d-87ea-4ba963e59ab8" name="Changes" comment="Changes to NY Pizza Page. Not yet complete.">
+    <list default="true" id="94beb78b-c834-418d-87ea-4ba963e59ab8" name="Changes" comment="add and remove methods">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project4/BBQ.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project4/BBQ.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project4/BYO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project4/BYO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project4/HomePageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project4/HomePageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project4/Meatzza.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project4/Meatzza.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project4/NYPizzaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project4/NYPizzaController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project4/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project4/Order.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project4/Size.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project4/Size.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/project4/NewYorkPizza.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/project4/NewYorkPizza.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project4/Pizza.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project4/Pizza.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project4/StoreOrder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project4/StoreOrder.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,8 +18,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Enum" />
         <option value="Class" />
+        <option value="Enum" />
         <option value="FxmlFile" />
       </list>
     </option>
@@ -44,31 +38,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;
   }
-}]]></component>
-  <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/main/resources" />
-    </key>
-    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="com.example.project4" />
-      <recent name="" />
-    </key>
-  </component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -78,7 +60,6 @@
       <option name="presentableId" value="Default" />
       <updated>1668447937952</updated>
       <workItem from="1668447939170" duration="17409000" />
-      <workItem from="1668995284268" duration="19726000" />
     </task>
     <task id="LOCAL-00001" summary="First Commit: Created all classes, interfaces, and enumerations needed for project. jfx file still default. also missing controllers and launcher.">
       <created>1668548555976</created>
@@ -87,12 +68,12 @@
       <option name="project" value="LOCAL" />
       <updated>1668548555976</updated>
     </task>
-    <task id="LOCAL-00002" summary="Changes to NY Pizza Page. Not yet complete.">
-      <created>1669056700086</created>
+    <task id="LOCAL-00002" summary="add and remove methods">
+      <created>1668825945414</created>
       <option name="number" value="00002" />
       <option name="presentableId" value="LOCAL-00002" />
       <option name="project" value="LOCAL" />
-      <updated>1669056700086</updated>
+      <updated>1668825945415</updated>
     </task>
     <option name="localTasksCounter" value="3" />
     <servers />
@@ -114,38 +95,7 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="First Commit: Created all classes, interfaces, and enumerations needed for project. jfx file still default. also missing controllers and launcher." />
-    <MESSAGE value="TouchUps" />
-    <MESSAGE value="Changes to NY Pizza Page. Not yet complete." />
-    <option name="LAST_COMMIT_MESSAGE" value="Changes to NY Pizza Page. Not yet complete." />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/example/project4/Deluxe.java</url>
-          <line>9</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/example/project4/Pizza.java</url>
-          <line>37</line>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/example/project4/Pizza.java</url>
-          <line>38</line>
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/example/project4/Pizza.java</url>
-          <line>39</line>
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
-        <breakpoint enabled="true" type="java-exception">
-          <properties class="java.lang.NullPointerException" package="java.lang" />
-          <option name="timeStamp" value="12" />
-        </breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="add and remove methods" />
+    <option name="LAST_COMMIT_MESSAGE" value="add and remove methods" />
   </component>
 </project>
