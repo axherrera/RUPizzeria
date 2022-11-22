@@ -4,10 +4,44 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="94beb78b-c834-418d-87ea-4ba963e59ab8" name="Changes" comment="add and remove methods">
+    <list default="true" id="94beb78b-c834-418d-87ea-4ba963e59ab8" name="Changes" comment="Project finished with exception of pictures and junit testing">
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_20_22,_2_57_PM_[Changes]/shelved.patch" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_20_22,_2_57_PM_[Changes]1/shelved.patch" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_21_22,_1_40_PM_[Changes]/chicago.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_21_22,_1_40_PM_[Changes]/nyc.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_21_22,_1_40_PM_[Changes]/pizzeria.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_21_22,_1_40_PM_[Changes]/shelved.patch" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_21_22,_1_40_PM_[Changes]/shoppingcart.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_21_22,_1_40_PM_[Changes]1/chicago.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_21_22,_1_40_PM_[Changes]1/nyc.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_21_22,_1_40_PM_[Changes]1/pizzeria.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_21_22,_1_40_PM_[Changes]1/shelved.patch" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_21_22,_1_40_PM_[Changes]1/shoppingcart.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_21_22,_8_09_PM_[Changes]/shelved.patch" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_21_22__8_09_PM__Changes_.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/file.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/bbqchicken.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/byo.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/project4/ChicagoPizzaController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/project4/CurrentOrderController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/project4/StoreOrdersController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/deluxe.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/deluxepic.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/deluxepizza.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/meatzza.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/project4/home-page.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project4/BYO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project4/BYO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project4/ChicagoPizza.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project4/ChicagoPizza.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project4/Crust.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project4/Crust.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project4/HomePageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project4/HomePageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project4/NYPizzaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project4/NYPizzaController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project4/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project4/Order.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project4/Pizza.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project4/Pizza.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project4/StoreOrder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project4/StoreOrder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/project4/ChicagoPizza.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/project4/ChicagoPizza.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/project4/CurrentOrder.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/project4/CurrentOrder.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/project4/StoreOrders.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/project4/StoreOrders.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,9 +52,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Class" />
         <option value="Enum" />
         <option value="FxmlFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -48,9 +82,42 @@
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/java" />
+      <recent name="$PROJECT_DIR$/src/main/resources" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.example.project4" />
+      <recent name="" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="RUPizzaMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.project4.RUPizzaMain" />
+      <module name="Project4" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.project4.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.RUPizzaMain" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -60,6 +127,7 @@
       <option name="presentableId" value="Default" />
       <updated>1668447937952</updated>
       <workItem from="1668447939170" duration="17409000" />
+      <workItem from="1668995284268" duration="44074000" />
     </task>
     <task id="LOCAL-00001" summary="First Commit: Created all classes, interfaces, and enumerations needed for project. jfx file still default. also missing controllers and launcher.">
       <created>1668548555976</created>
@@ -68,14 +136,21 @@
       <option name="project" value="LOCAL" />
       <updated>1668548555976</updated>
     </task>
-    <task id="LOCAL-00002" summary="add and remove methods">
-      <created>1668825945414</created>
+    <task id="LOCAL-00002" summary="Changes to NY Pizza Page. Not yet complete.">
+      <created>1669056700086</created>
       <option name="number" value="00002" />
       <option name="presentableId" value="LOCAL-00002" />
       <option name="project" value="LOCAL" />
-      <updated>1668825945415</updated>
+      <updated>1669056700086</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="NY Pizza Page finished except for add order and image switch">
+      <created>1669063542739</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1669063542739</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -95,7 +170,31 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="First Commit: Created all classes, interfaces, and enumerations needed for project. jfx file still default. also missing controllers and launcher." />
-    <MESSAGE value="add and remove methods" />
-    <option name="LAST_COMMIT_MESSAGE" value="add and remove methods" />
+    <MESSAGE value="TouchUps" />
+    <MESSAGE value="Changes to NY Pizza Page. Not yet complete." />
+    <MESSAGE value="NY Pizza Page finished except for add order and image switch" />
+    <MESSAGE value="Project finished with exception of pictures and junit testing" />
+    <option name="LAST_COMMIT_MESSAGE" value="Project finished with exception of pictures and junit testing" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.NullPointerException" package="java.lang" />
+          <option name="timeStamp" value="12" />
+        </breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/project4/StoreOrdersController.java</url>
+          <line>35</line>
+          <option name="timeStamp" value="38" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="com.example.project4.Order" memberName="orders" />
+        <PinnedItemInfo parentTag="com.example.project4.HomePageController" memberName="storeOrders" />
+      </pinned-members>
+    </pin-to-top-manager>
   </component>
 </project>

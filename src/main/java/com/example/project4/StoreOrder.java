@@ -13,12 +13,10 @@ public class StoreOrder implements Customizable{
         this.orders = new ArrayList<>();
     }
 
-    /* TODO Methods
-//    -implement the add and remove for adding and removing orders from arraylist
+    public ArrayList<Order> getOrders() {
+        return orders;
+    }
 
-    - export method which saves all orders into a file
-        - lookup how to create and write into a file java
-     */
     public void export(){
         try {
             String s  = "RUPizza";
@@ -44,6 +42,14 @@ public class StoreOrder implements Customizable{
             flag = true;
         }
         return flag;
+    }
+
+    public Order getOrder(int orderNum){
+        for(Order o : orders){
+            if (o.getOrderNum() ==orderNum)
+                    return o;
+        }
+        return null;
     }
 
     @Override

@@ -1,0 +1,870 @@
+Index: src/main/java/com/example/project4/ChicagoPizza.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.project4;\n\npublic class ChicagoPizza implements PizzaFactory{\n\n    @Override\n    public Pizza createDeluxe() {\n        return null;\n    }\n\n    @Override\n    public Pizza createMeatzza() {\n        return null;\n    }\n\n    @Override\n    public Pizza createBBQChicken() {\n        return null;\n    }\n\n    @Override\n    public Pizza createBuildYourOwn() {\n        return null;\n    }\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/example/project4/ChicagoPizza.java b/src/main/java/com/example/project4/ChicagoPizza.java
+--- a/src/main/java/com/example/project4/ChicagoPizza.java	(revision 5362a7d0952b2e398bfa9661165522901419425c)
++++ b/src/main/java/com/example/project4/ChicagoPizza.java	(date 1669066208748)
+@@ -4,21 +4,29 @@
+ 
+     @Override
+     public Pizza createDeluxe() {
+-        return null;
++        Deluxe p = new Deluxe();
++        p.setCrust(Crust.DEEPDISH);
++        return p;
+     }
+ 
+     @Override
+     public Pizza createMeatzza() {
+-        return null;
++        Meatzza p = new Meatzza();
++        p.setCrust(Crust.STUFFED);
++        return p;
+     }
+ 
+     @Override
+     public Pizza createBBQChicken() {
+-        return null;
++        BBQ p = new BBQ();
++        p.setCrust(Crust.PAN);
++        return p;
+     }
+ 
+     @Override
+     public Pizza createBuildYourOwn() {
+-        return null;
++        BYO p = new BYO();
++        p.setCrust(Crust.PAN);
++        return p;
+     }
+ }
+Index: src/main/java/com/example/project4/Crust.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.project4;\n\npublic enum Crust {\n    DEEPDISH(\"Deep Dish\"),\n    PAN(\"Pan\"),\n    STUFFED(\"Stuffed\"),\n    BROOKLYN(\"Brooklyn\"),\n    THIN(\"Thin\"),\n    HANDTOSSED(\"Hand Tossed\");\n\n    private final String crust;\n\n    Crust(String crust){\n        this.crust = crust;\n    }\n\n    public String getCrust(){\n        return this.crust;\n    }\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/example/project4/Crust.java b/src/main/java/com/example/project4/Crust.java
+--- a/src/main/java/com/example/project4/Crust.java	(revision 5362a7d0952b2e398bfa9661165522901419425c)
++++ b/src/main/java/com/example/project4/Crust.java	(date 1669077894895)
+@@ -1,12 +1,12 @@
+ package com.example.project4;
+ 
+ public enum Crust {
+-    DEEPDISH("Deep Dish"),
+-    PAN("Pan"),
+-    STUFFED("Stuffed"),
+-    BROOKLYN("Brooklyn"),
+-    THIN("Thin"),
+-    HANDTOSSED("Hand Tossed");
++    DEEPDISH("Chicago - Deep Dish"),
++    PAN("Chicago - Pan"),
++    STUFFED("Chicago - Stuffed"),
++    BROOKLYN("New York - Brooklyn"),
++    THIN("New York - Thin"),
++    HANDTOSSED("New York - Hand Tossed");
+ 
+     private final String crust;
+ 
+Index: src/main/resources/com/example/project4/CurrentOrder.fxml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n\n<?import java.lang.*?>\n<?import java.util.*?>\n<?import javafx.scene.*?>\n<?import javafx.scene.control.*?>\n<?import javafx.scene.layout.*?>\n\n<AnchorPane xmlns=\"http://javafx.com/javafx\"\n            xmlns:fx=\"http://javafx.com/fxml\"\n            fx:controller=\"com.example.project4.CurrentOrder\"\n            prefHeight=\"400.0\" prefWidth=\"600.0\">\n\n</AnchorPane>\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/resources/com/example/project4/CurrentOrder.fxml b/src/main/resources/com/example/project4/CurrentOrder.fxml
+--- a/src/main/resources/com/example/project4/CurrentOrder.fxml	(revision 5362a7d0952b2e398bfa9661165522901419425c)
++++ b/src/main/resources/com/example/project4/CurrentOrder.fxml	(date 1669074801440)
+@@ -1,14 +1,31 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ 
+-<?import java.lang.*?>
+-<?import java.util.*?>
+-<?import javafx.scene.*?>
+-<?import javafx.scene.control.*?>
+-<?import javafx.scene.layout.*?>
++<?import javafx.scene.control.Button?>
++<?import javafx.scene.control.Label?>
++<?import javafx.scene.control.ListView?>
++<?import javafx.scene.control.TextField?>
++<?import javafx.scene.layout.AnchorPane?>
++<?import javafx.scene.text.Font?>
+ 
+-<AnchorPane xmlns="http://javafx.com/javafx"
+-            xmlns:fx="http://javafx.com/fxml"
+-            fx:controller="com.example.project4.CurrentOrder"
+-            prefHeight="400.0" prefWidth="600.0">
+ 
++<AnchorPane prefHeight="426.0" prefWidth="639.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project4.CurrentOrderController">
++   <children>
++      <Label layoutX="199.0" layoutY="14.0" text="Current Order">
++         <font>
++            <Font size="35.0" />
++         </font>
++      </Label>
++      <ListView fx:id="allOrders" layoutX="24.0" layoutY="101.0" prefHeight="304.0" prefWidth="417.0" />
++      <Button layoutX="473.0" layoutY="69.0" mnemonicParsing="false" onAction="#removePizza" prefHeight="26.0" prefWidth="128.0" text="Remove Pizza" />
++      <Button layoutX="473.0" layoutY="107.0" mnemonicParsing="false" onAction="#clearOrder" prefHeight="26.0" prefWidth="128.0" text="Clear Order" />
++      <Button layoutX="473.0" layoutY="149.0" mnemonicParsing="false" onAction="#placeOrder" prefHeight="26.0" prefWidth="128.0" text="Place Order" />
++      <TextField fx:id="subtotal" layoutX="457.0" layoutY="227.0" />
++      <TextField fx:id="salesTax" layoutX="457.0" layoutY="284.0" />
++      <TextField fx:id="orderTotal" layoutX="457.0" layoutY="347.0" />
++      <Label layoutX="24.0" layoutY="74.0" text="order number: " />
++      <Label layoutX="511.0" layoutY="260.0" text="sales tax" />
++      <Label layoutX="507.0" layoutY="323.0" text="order total" />
++      <TextField fx:id="orderNumber" layoutX="103.0" layoutY="70.0" prefHeight="26.0" prefWidth="104.0" />
++      <Label layoutX="513.0" layoutY="205.0" text="subtotal" />
++   </children>
+ </AnchorPane>
+Index: src/main/java/com/example/project4/NYPizzaController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>\n\npackage com.example.project4;\n\n        import javafx.beans.value.ChangeListener;\n        import javafx.beans.value.ObservableValue;\n        import javafx.collections.FXCollections;\n        import javafx.collections.ObservableList;\n        import javafx.event.ActionEvent;\n        import javafx.fxml.FXML;\n        import javafx.fxml.Initializable;\n        import javafx.scene.control.*;\n        import javafx.scene.image.ImageView;\n\n        import java.net.URL;\n        import java.util.ArrayList;\n        import java.util.Arrays;\n        import java.util.ResourceBundle;\n\npublic class NYPizzaController implements Initializable {\n\n    private PizzaFactory factory;\n    private Pizza currentPizza;\n\n    private final Style [] styleOptions = {\n            Style.DELUXE,\n            Style.BBQ,\n            Style.MEATZZA,\n            Style.BYO\n    };\n\n\n    @FXML\n    private Button addToppingButton, remToppingButton;\n    @FXML\n    private TextField crustType;\n\n    @FXML\n    private ImageView nyPizzaImage;\n\n    @FXML\n    private ListView<Topping> opList;\n\n    @FXML\n    private TextField pizzaPrice;\n\n    @FXML\n    private ToggleGroup pizzaSize;\n\n    @FXML\n    private ComboBox<Style> pizzaSyle;\n\n    @FXML\n    private ListView<Topping> selList;\n\n    @FXML\n    private RadioButton smallPizza, mediumPizza, largePizza;\n\n    private ObservableList<Topping> toppings;\n    private ObservableList<Topping> selected;\n\n    @Override\n    public void initialize(URL url, ResourceBundle resourceBundle) {\n        toppings = FXCollections.observableArrayList(Topping.getAll());\n        selected = FXCollections.observableArrayList();\n        opList.setItems(toppings);\n        selList.setItems(selected);\n        pizzaSyle.getItems().addAll(styleOptions);\n\n        factory = new NYPizza();\n        pizzaSyle.setValue(Style.DELUXE);\n\n        updatePage(Style.DELUXE);\n    }\n\n    @FXML\n    void addToOrder(ActionEvent event) {\n\n    }\n\n    @FXML\n    void addTopping(ActionEvent event) {\n        Topping t = opList.getSelectionModel().getSelectedItem();\n        if(t==null)\n            return;\n        selList.getItems().add(t);\n        currentPizza.add(t);\n        opList.getItems().remove(t);\n        pizzaPrice.setText(Double.toString(currentPizza.price()));\n        if(currentPizza.getNumToppings()==7)\n            addToppingButton.setDisable(true);\n    }\n\n    @FXML\n    void remTopping(ActionEvent event) {\n        Topping t = selList.getSelectionModel().getSelectedItem();\n        if(t==null)\n            return;\n        selList.getItems().remove(t);\n        currentPizza.remove(t);\n        opList.getItems().add(t);\n        pizzaPrice.setText(Double.toString(currentPizza.price()));\n        if(currentPizza.getNumToppings()<7)\n            addToppingButton.setDisable(false);\n    }\n\n    @FXML\n    void changeSize(ActionEvent event) {\n        currentPizza.setSize(\n                Size.idSize(((RadioButton)pizzaSize.getSelectedToggle()).getText())\n        );\n        pizzaPrice.setText(Double.toString(currentPizza.price()));\n    }\n\n    @FXML\n    void styleSelection(ActionEvent event) {\n        Style currentSelection = pizzaSyle.getValue();\n        switch (currentSelection){\n            case DELUXE -> updatePage(Style.DELUXE);\n\n            case BBQ -> updatePage(Style.BBQ);\n\n            case MEATZZA -> updatePage(Style.MEATZZA);\n\n            case BYO -> updatePage(Style.BYO);\n        }\n    }\n\n    void updatePage(Style style){\n        switch (style){\n            case DELUXE -> {\n                currentPizza = factory.createDeluxe();\n                selected = FXCollections.observableArrayList(Topping.getDeluxe());\n                disableButtons();\n            }\n            case BBQ -> {\n                currentPizza = factory.createBBQChicken();\n                selected = FXCollections.observableArrayList(Topping.getBBQ());\n                disableButtons();\n            }\n            case MEATZZA -> {\n                currentPizza = factory.createMeatzza();\n                selected = FXCollections.observableArrayList(Topping.getMeatzza());\n                disableButtons();\n            }\n            case BYO -> {\n                currentPizza = factory.createBuildYourOwn();\n                selected = FXCollections.observableArrayList(new ArrayList<>());\n                enableButtons();\n            }\n            default -> factory.createBuildYourOwn();\n        }\n        currentPizza.setSize(\n                Size.idSize(((RadioButton)pizzaSize.getSelectedToggle()).getText())\n        );\n        selList.setItems(selected);\n        selected = FXCollections.observableArrayList(Topping.getDeluxe());\n        crustType.setText(currentPizza.getCrust().toString());\n        pizzaPrice.setText(Double.toString(currentPizza.price()));\n    }\n\n    void disableButtons (){\n        addToppingButton.setDisable(true);\n        remToppingButton.setDisable(true);\n        selList.setDisable(true);\n        opList.setDisable(true);\n    }\n\n    void enableButtons (){\n        addToppingButton.setDisable(false);\n        remToppingButton.setDisable(false);\n        selList.setDisable(false);\n        opList.setDisable(false);\n    }\n}\n\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/example/project4/NYPizzaController.java b/src/main/java/com/example/project4/NYPizzaController.java
+--- a/src/main/java/com/example/project4/NYPizzaController.java	(revision 5362a7d0952b2e398bfa9661165522901419425c)
++++ b/src/main/java/com/example/project4/NYPizzaController.java	(date 1669074113183)
+@@ -2,23 +2,22 @@
+ 
+ package com.example.project4;
+ 
+-        import javafx.beans.value.ChangeListener;
+-        import javafx.beans.value.ObservableValue;
++
+         import javafx.collections.FXCollections;
+         import javafx.collections.ObservableList;
+         import javafx.event.ActionEvent;
+         import javafx.fxml.FXML;
++        import javafx.fxml.FXMLLoader;
+         import javafx.fxml.Initializable;
+         import javafx.scene.control.*;
+         import javafx.scene.image.ImageView;
+ 
+         import java.net.URL;
+-        import java.util.ArrayList;
+-        import java.util.Arrays;
+         import java.util.ResourceBundle;
+ 
+ public class NYPizzaController implements Initializable {
+ 
++    private HomePageController homePageController;
+     private PizzaFactory factory;
+     private Pizza currentPizza;
+ 
+@@ -66,6 +65,8 @@
+         opList.setItems(toppings);
+         selList.setItems(selected);
+         pizzaSyle.getItems().addAll(styleOptions);
++        crustType.setEditable(false);
++        pizzaPrice.setEditable(false);
+ 
+         factory = new NYPizza();
+         pizzaSyle.setValue(Style.DELUXE);
+@@ -73,9 +74,12 @@
+         updatePage(Style.DELUXE);
+     }
+ 
++    public void setHomePageController(HomePageController controller){
++        this.homePageController=controller;
++    }
+     @FXML
+     void addToOrder(ActionEvent event) {
+-
++        homePageController.addToOrder(currentPizza);
+     }
+ 
+     @FXML
+@@ -130,22 +134,27 @@
+         switch (style){
+             case DELUXE -> {
+                 currentPizza = factory.createDeluxe();
+-                selected = FXCollections.observableArrayList(Topping.getDeluxe());
++                selected.removeAll(Topping.getAll());
++                selected.addAll(Topping.getDeluxe());
+                 disableButtons();
+             }
+             case BBQ -> {
+                 currentPizza = factory.createBBQChicken();
+-                selected = FXCollections.observableArrayList(Topping.getBBQ());
++                selected.removeAll(Topping.getAll());
++                selected.addAll(Topping.getBBQ());
+                 disableButtons();
+             }
+             case MEATZZA -> {
+                 currentPizza = factory.createMeatzza();
+-                selected = FXCollections.observableArrayList(Topping.getMeatzza());
++                selected.removeAll(Topping.getAll());
++                selected.addAll(Topping.getMeatzza());
+                 disableButtons();
+             }
+             case BYO -> {
+                 currentPizza = factory.createBuildYourOwn();
+-                selected = FXCollections.observableArrayList(new ArrayList<>());
++                toppings.removeAll(Topping.getAll());
++                toppings.addAll(Topping.getAll());
++                selected.removeAll(Topping.getAll());
+                 enableButtons();
+             }
+             default -> factory.createBuildYourOwn();
+@@ -154,7 +163,6 @@
+                 Size.idSize(((RadioButton)pizzaSize.getSelectedToggle()).getText())
+         );
+         selList.setItems(selected);
+-        selected = FXCollections.observableArrayList(Topping.getDeluxe());
+         crustType.setText(currentPizza.getCrust().toString());
+         pizzaPrice.setText(Double.toString(currentPizza.price()));
+     }
+@@ -162,14 +170,12 @@
+     void disableButtons (){
+         addToppingButton.setDisable(true);
+         remToppingButton.setDisable(true);
+-        selList.setDisable(true);
+         opList.setDisable(true);
+     }
+ 
+     void enableButtons (){
+         addToppingButton.setDisable(false);
+         remToppingButton.setDisable(false);
+-        selList.setDisable(false);
+         opList.setDisable(false);
+     }
+ }
+Index: src/main/java/com/example/project4/HomePageController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.project4;\n\nimport javafx.event.ActionEvent;\nimport javafx.fxml.FXML;\nimport javafx.fxml.FXMLLoader;\nimport javafx.fxml.Initializable;\nimport javafx.scene.Parent;\nimport javafx.scene.Scene;\nimport javafx.stage.Stage;\n\nimport java.io.IOException;\nimport java.net.URL;\nimport java.util.ResourceBundle;\n\npublic class HomePageController implements Initializable {\n\n    Order currentOrder;\n    StoreOrder storeOrders;\n    int orderNums;\n\n    @Override\n    public void initialize(URL url, ResourceBundle resourceBundle) {\n        orderNums = 1;\n        currentOrder = new Order(orderNums++);\n        storeOrders = new StoreOrder();\n    }\n\n    @FXML\n    void selectCO(ActionEvent event) throws IOException {\n        FXMLLoader loader = new FXMLLoader(getClass().getResource(\"CurrentOrder.fxml\"));\n        Parent root = loader.load();\n        Stage stage = new Stage();\n        stage.setScene(new Scene(root));\n        stage.setTitle(\"New York Style Pizza\");\n        stage.show();\n    }\n\n    @FXML\n    void selectChiStyle(ActionEvent event) throws IOException {\n        FXMLLoader loader = new FXMLLoader(getClass().getResource(\"ChicagoPizza.fxml\"));\n        Parent root = loader.load();\n        Stage stage = new Stage();\n        stage.setScene(new Scene(root));\n        stage.setTitle(\"New York Style Pizza\");\n        stage.show();\n    }\n\n    @FXML\n    void selectNYS(ActionEvent event) throws IOException {\n        FXMLLoader loader = new FXMLLoader(getClass().getResource(\"NewYorkPizza.fxml\"));\n        Parent root = loader.load();\n        Stage stage = new Stage();\n        stage.setScene(new Scene(root));\n        stage.setTitle(\"New York Style Pizza\");\n        stage.show();\n    }\n\n    @FXML\n    void selectSO(ActionEvent event) throws IOException {\n        FXMLLoader loader = new FXMLLoader(getClass().getResource(\"StoreOrders.fxml\"));\n        Parent root = loader.load();\n        Stage stage = new Stage();\n        stage.setScene(new Scene(root));\n        stage.setTitle(\"New York Style Pizza\");\n        stage.show();\n    }\n\n    public void addToOrder(Pizza pizza){\n\n    }\n\n\n\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/example/project4/HomePageController.java b/src/main/java/com/example/project4/HomePageController.java
+--- a/src/main/java/com/example/project4/HomePageController.java	(revision 5362a7d0952b2e398bfa9661165522901419425c)
++++ b/src/main/java/com/example/project4/HomePageController.java	(date 1669077441780)
+@@ -18,6 +18,9 @@
+     StoreOrder storeOrders;
+     int orderNums;
+ 
++    public HomePageController() throws IOException {
++    }
++
+     @Override
+     public void initialize(URL url, ResourceBundle resourceBundle) {
+         orderNums = 1;
+@@ -29,9 +32,12 @@
+     void selectCO(ActionEvent event) throws IOException {
+         FXMLLoader loader = new FXMLLoader(getClass().getResource("CurrentOrder.fxml"));
+         Parent root = loader.load();
++        CurrentOrderController currentOrderController = loader.getController();
++        currentOrderController.setHomePageController(this);
++        currentOrderController.populateOrder(currentOrder);
+         Stage stage = new Stage();
+         stage.setScene(new Scene(root));
+-        stage.setTitle("New York Style Pizza");
++        stage.setTitle("Current Order");
+         stage.show();
+     }
+ 
+@@ -41,16 +47,18 @@
+         Parent root = loader.load();
+         Stage stage = new Stage();
+         stage.setScene(new Scene(root));
+-        stage.setTitle("New York Style Pizza");
++        stage.setTitle("Chicago Style Pizza");
+         stage.show();
+     }
+ 
+     @FXML
+     void selectNYS(ActionEvent event) throws IOException {
+-        FXMLLoader loader = new FXMLLoader(getClass().getResource("NewYorkPizza.fxml"));
+-        Parent root = loader.load();
++        FXMLLoader NYloader = new FXMLLoader(getClass().getResource("NewYorkPizza.fxml"));
++        Parent NYroot = NYloader.load();
++        NYPizzaController nyPizzaController = NYloader.getController();
++        nyPizzaController.setHomePageController(this);
+         Stage stage = new Stage();
+-        stage.setScene(new Scene(root));
++        stage.setScene(new Scene(NYroot));
+         stage.setTitle("New York Style Pizza");
+         stage.show();
+     }
+@@ -61,14 +69,26 @@
+         Parent root = loader.load();
+         Stage stage = new Stage();
+         stage.setScene(new Scene(root));
+-        stage.setTitle("New York Style Pizza");
++        stage.setTitle("Store Orders");
+         stage.show();
+     }
+ 
+     public void addToOrder(Pizza pizza){
++        currentOrder.add(pizza);
++    }
++
++    public void clearOrder(){
++        currentOrder.clearOrder();
++    }
+ 
++    public void placeOrder(){
++        storeOrders.add(currentOrder);
++        currentOrder = new Order(orderNums++);
+     }
+ 
++    public void removePizza(int index){
++        currentOrder.remove(index);
++    }
+ 
+ 
+ }
+Index: src/main/java/com/example/project4/Order.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.project4;\n\nimport java.util.ArrayList;\n\npublic class Order implements Customizable{\n\n    private ArrayList<Pizza> orders;\n    private double orderTotal;\n    private int orderNum;\n    private double price;\n\n    public Order(int orderNum) {\n        this.orders = new ArrayList<>();\n        this.orderTotal = 0.00;\n        this.orderNum = orderNum;\n    }\n\n    /* TODO  Methods to implement\n//    -getprice/generate price\n//    -getters and setters for instance variables\n    -implement add/remove for adding and removing pizzas from order\n    -write tostring method\n        - will use tostring from pizza\n     */\n    public ArrayList<Pizza> getOrders() {\n        return orders;\n    }\n\n    public void setOrders(ArrayList<Pizza> orders) {\n        this.orders = orders;\n    }\n\n    public double isOrderTotal() {\n        return orderTotal;\n    }\n\n    public void setOrderTotal(double orderTotal) {\n        this.orderTotal = orderTotal;\n    }\n\n    public int getOrderNum() {\n        return orderNum;\n    }\n\n    public void setOrderNum(int orderNum) {\n        this.orderNum = orderNum;\n    }\n\n\n    @Override\n    public boolean add(Object obj) {\n        boolean flag = false;\n        if( !orders.contains(obj)){\n            orders.add((Pizza) obj);\n            flag = true;\n        }\n        return flag;\n    }\n\n    @Override\n    public boolean remove(Object obj) {\n        return orders.remove((Pizza) obj);\n    }\n\n    @Override\n    public String toString() {\n        return   orders + \", \" + orderTotal + \", \" + orderNum + \", \" + price;\n    }\n\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/example/project4/Order.java b/src/main/java/com/example/project4/Order.java
+--- a/src/main/java/com/example/project4/Order.java	(revision 5362a7d0952b2e398bfa9661165522901419425c)
++++ b/src/main/java/com/example/project4/Order.java	(date 1669074980063)
+@@ -1,13 +1,13 @@
+ package com.example.project4;
+ 
+ import java.util.ArrayList;
++import java.util.Arrays;
+ 
+ public class Order implements Customizable{
+ 
+     private ArrayList<Pizza> orders;
+     private double orderTotal;
+     private int orderNum;
+-    private double price;
+ 
+     public Order(int orderNum) {
+         this.orders = new ArrayList<>();
+@@ -15,6 +15,25 @@
+         this.orderNum = orderNum;
+     }
+ 
++    @Override
++    public boolean add(Object obj) {
++        boolean flag = false;
++        if( !orders.contains(obj)){
++            orders.add((Pizza) obj);
++            flag = true;
++            orderTotal+=((Pizza) obj).price();
++        }
++        return flag;
++    }
++
++    @Override
++    public boolean remove(Object obj) {
++        if (orders.remove((Pizza) obj)){
++            orderTotal+=((Pizza) obj).price();
++            return true;
++        }
++        return false;
++    }
+     /* TODO  Methods to implement
+ //    -getprice/generate price
+ //    -getters and setters for instance variables
+@@ -22,6 +41,11 @@
+     -write tostring method
+         - will use tostring from pizza
+      */
++
++    public void clearOrder(){
++        this.orderTotal = 0;
++        this.orders = new ArrayList<>();
++    }
+     public ArrayList<Pizza> getOrders() {
+         return orders;
+     }
+@@ -47,24 +71,11 @@
+     }
+ 
+ 
+-    @Override
+-    public boolean add(Object obj) {
+-        boolean flag = false;
+-        if( !orders.contains(obj)){
+-            orders.add((Pizza) obj);
+-            flag = true;
+-        }
+-        return flag;
+-    }
+-
+-    @Override
+-    public boolean remove(Object obj) {
+-        return orders.remove((Pizza) obj);
+-    }
++
+ 
+     @Override
+     public String toString() {
+-        return   orders + ", " + orderTotal + ", " + orderNum + ", " + price;
++        return   orders + ", " + orderTotal + ", " + orderNum + ", ";
+     }
+ 
+ }
+Index: src/main/java/com/example/project4/Pizza.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.project4;\n\nimport java.util.ArrayList;\n\npublic abstract class Pizza implements Customizable{\n\n    private ArrayList<Topping> toppings;\n    private Crust crust;\n    private Size size;\n\n    public abstract double price();\n\n    public Pizza() {\n        this.toppings = new ArrayList<>();\n    }\n\n    public Size getSize() {\n        return size;\n    }\n\n    public void setSize(Size size) {\n        this.size = size;\n    }\n\n    public Crust getCrust() {\n        return crust;\n    }\n\n    public void setCrust(Crust crust) {\n        this.crust = crust;\n    }\n\n    public int getNumToppings(){\n        return toppings.size();\n    }\n    @Override\n    public boolean add(Object obj) {\n        if(obj instanceof Topping)\n            return toppings.add((Topping)obj);\n        return false;\n    }\n\n    @Override\n    public boolean remove(Object obj) {\n        if(obj instanceof Topping)\n            return toppings.remove(obj);\n        return false;\n    }\n\n//    @Override\n//    public String toString() {\n//        return \"(\" + crust + \")\" + \", \" + toppings + \" , \" + size + \", \" + price();\n//    }\n\n   /*\n    TODO Methods\n    - to string class (watch the demo to see what to string look like\n        -pizza type (ny /chicago)\n//        - pizza size\n        -pizza style ( bbq/del/byo/ meatzza\n//        -toppings\n        - price\n     */\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/example/project4/Pizza.java b/src/main/java/com/example/project4/Pizza.java
+--- a/src/main/java/com/example/project4/Pizza.java	(revision 5362a7d0952b2e398bfa9661165522901419425c)
++++ b/src/main/java/com/example/project4/Pizza.java	(date 1669079167508)
+@@ -47,18 +47,9 @@
+         return false;
+     }
+ 
+-//    @Override
+-//    public String toString() {
+-//        return "(" + crust + ")" + ", " + toppings + " , " + size + ", " + price();
+-//    }
+-
+-   /*
+-    TODO Methods
+-    - to string class (watch the demo to see what to string look like
+-        -pizza type (ny /chicago)
+-//        - pizza size
+-        -pizza style ( bbq/del/byo/ meatzza
+-//        -toppings
+-        - price
+-     */
++    @Override
++    public String toString() {
++        String name = this.getClass().getName().substring(21);
++        return name + " (" + crust + ")" + ", " + toppings + " , " + size + ", " + price();
++    }
+ }
+Index: src/main/resources/com/example/project4/ChicagoPizza.fxml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n\n<?import java.lang.*?>\n<?import java.util.*?>\n<?import javafx.scene.*?>\n<?import javafx.scene.control.*?>\n<?import javafx.scene.layout.*?>\n\n<AnchorPane xmlns=\"http://javafx.com/javafx\"\n            xmlns:fx=\"http://javafx.com/fxml\"\n            fx:controller=\"com.example.project4.ChiStylePage\"\n            prefHeight=\"400.0\" prefWidth=\"600.0\">\n\n</AnchorPane>\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/resources/com/example/project4/ChicagoPizza.fxml b/src/main/resources/com/example/project4/ChicagoPizza.fxml
+--- a/src/main/resources/com/example/project4/ChicagoPizza.fxml	(revision 5362a7d0952b2e398bfa9661165522901419425c)
++++ b/src/main/resources/com/example/project4/ChicagoPizza.fxml	(date 1669066029259)
+@@ -1,14 +1,75 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ 
+-<?import java.lang.*?>
+-<?import java.util.*?>
+-<?import javafx.scene.*?>
+-<?import javafx.scene.control.*?>
+-<?import javafx.scene.layout.*?>
++<?import javafx.scene.control.Button?>
++<?import javafx.scene.control.ComboBox?>
++<?import javafx.scene.control.Label?>
++<?import javafx.scene.control.ListView?>
++<?import javafx.scene.control.RadioButton?>
++<?import javafx.scene.control.TextField?>
++<?import javafx.scene.control.ToggleGroup?>
++<?import javafx.scene.image.ImageView?>
++<?import javafx.scene.layout.AnchorPane?>
++<?import javafx.scene.layout.ColumnConstraints?>
++<?import javafx.scene.layout.GridPane?>
++<?import javafx.scene.layout.RowConstraints?>
++<?import javafx.scene.text.Font?>
+ 
+-<AnchorPane xmlns="http://javafx.com/javafx"
+-            xmlns:fx="http://javafx.com/fxml"
+-            fx:controller="com.example.project4.ChiStylePage"
+-            prefHeight="400.0" prefWidth="600.0">
+-
++<AnchorPane prefHeight="587.0" prefWidth="587.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project4.ChicagoPizzaController">
++    <children>
++        <Label layoutX="93.0" layoutY="35.0" text="Chicago Style Pizza">
++            <font>
++                <Font name="Camber" size="45.0" />
++            </font>
++        </Label>
++        <ListView fx:id="opList" editable="true" layoutX="76.0" layoutY="318.0" prefHeight="196.0" prefWidth="179.0" />
++        <ListView fx:id="selList" editable="true" layoutX="350.0" layoutY="318.0" prefHeight="196.0" prefWidth="179.0" />
++        <Button fx:id="addToppingButton" layoutX="275.0" layoutY="390.0" mnemonicParsing="false" onAction="#addTopping" text="--&gt;" />
++        <Button fx:id="remToppingButton" layoutX="275.0" layoutY="416.0" mnemonicParsing="false" onAction="#remTopping" text="&lt;--" />
++        <ImageView fx:id="chiPizzaImage" fitHeight="150.0" fitWidth="200.0" layoutX="350.0" layoutY="139.0" pickOnBounds="true" preserveRatio="true" />
++        <ComboBox fx:id="pizzaSyle" layoutX="73.0" layoutY="157.0" onAction="#styleSelection" prefWidth="150.0" />
++        <Label layoutX="76.0" layoutY="108.0" text="Pizza Style">
++            <font>
++                <Font name="System Bold" size="18.0" />
++            </font>
++        </Label>
++        <Label layoutX="76.0" layoutY="294.0" text="Toppings">
++            <font>
++                <Font size="19.0" />
++            </font>
++        </Label>
++        <GridPane layoutX="50.0" layoutY="199.0">
++            <columnConstraints>
++                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
++                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
++                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
++            </columnConstraints>
++            <rowConstraints>
++                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
++            </rowConstraints>
++            <children>
++                <AnchorPane prefHeight="200.0" prefWidth="200.0">
++                    <children>
++                        <RadioButton fx:id="smallPizza" layoutX="24.0" layoutY="5.0" mnemonicParsing="false" onAction="#changeSize" text="small">
++                            <toggleGroup>
++                                <ToggleGroup fx:id="pizzaSize" />
++                            </toggleGroup>
++                        </RadioButton>
++                    </children>
++                </AnchorPane>
++                <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
++                    <children>
++                        <RadioButton fx:id="mediumPizza" layoutX="16.0" layoutY="5.0" mnemonicParsing="false" onAction="#changeSize" selected="true" text="medium" toggleGroup="$pizzaSize" />
++                    </children>
++                </AnchorPane>
++                <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2">
++                    <children>
++                        <RadioButton fx:id="largePizza" layoutX="14.0" layoutY="5.0" mnemonicParsing="false" onAction="#changeSize" text="large" toggleGroup="$pizzaSize" />
++                    </children>
++                </AnchorPane>
++            </children>
++        </GridPane>
++        <TextField fx:id="crustType" layoutX="78.0" layoutY="245.0" />
++        <TextField fx:id="pizzaPrice" layoutX="95.0" layoutY="537.0" />
++        <Button layoutX="378.0" layoutY="535.0" mnemonicParsing="false" onAction="#addToOrder" prefHeight="30.0" prefWidth="160.0" text="Add to Order" />
++    </children>
+ </AnchorPane>
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"AutoImportSettings\">\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\n  </component>\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"94beb78b-c834-418d-87ea-4ba963e59ab8\" name=\"Changes\" comment=\"Changes to NY Pizza Page. Not yet complete.\">\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/example/project4/BBQ.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/example/project4/BBQ.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/example/project4/BYO.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/example/project4/BYO.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/example/project4/HomePageController.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/example/project4/HomePageController.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/example/project4/Meatzza.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/example/project4/Meatzza.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/example/project4/NYPizzaController.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/example/project4/NYPizzaController.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/example/project4/Order.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/example/project4/Order.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/example/project4/Size.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/example/project4/Size.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/main/resources/com/example/project4/NewYorkPizza.fxml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/resources/com/example/project4/NewYorkPizza.fxml\" afterDir=\"false\" />\n    </list>\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"FileTemplateManagerImpl\">\n    <option name=\"RECENT_TEMPLATES\">\n      <list>\n        <option value=\"Interface\" />\n        <option value=\"Enum\" />\n        <option value=\"Class\" />\n        <option value=\"FxmlFile\" />\n      </list>\n    </option>\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n  </component>\n  <component name=\"MarkdownSettingsMigration\">\n    <option name=\"stateVersion\" value=\"1\" />\n  </component>\n  <component name=\"ProjectId\" id=\"2HY2wYTpivk3lY91LEbM1W811FN\" />\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\">\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\n  </component>\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\"><![CDATA[{\n  \"keyToString\": {\n    \"ASKED_ADD_EXTERNAL_FILES\": \"true\",\n    \"RunOnceActivity.OpenProjectViewOnStart\": \"true\",\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\n    \"SHARE_PROJECT_CONFIGURATION_FILES\": \"true\",\n    \"WebServerToolWindowFactoryState\": \"false\",\n    \"node.js.detected.package.eslint\": \"true\",\n    \"node.js.detected.package.tslint\": \"true\",\n    \"node.js.selected.package.eslint\": \"(autodetect)\",\n    \"node.js.selected.package.tslint\": \"(autodetect)\",\n    \"project.structure.last.edited\": \"Modules\",\n    \"project.structure.proportion\": \"0.15\",\n    \"project.structure.side.proportion\": \"0.2\"\n  }\n}]]></component>\n  <component name=\"RecentsManager\">\n    <key name=\"MoveFile.RECENT_KEYS\">\n      <recent name=\"$PROJECT_DIR$/src/main/resources\" />\n    </key>\n    <key name=\"MoveClassesOrPackagesDialog.RECENTS_KEY\">\n      <recent name=\"com.example.project4\" />\n      <recent name=\"\" />\n    </key>\n  </component>\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"94beb78b-c834-418d-87ea-4ba963e59ab8\" name=\"Changes\" comment=\"\" />\n      <created>1668447937952</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1668447937952</updated>\n      <workItem from=\"1668447939170\" duration=\"17409000\" />\n      <workItem from=\"1668995284268\" duration=\"19726000\" />\n    </task>\n    <task id=\"LOCAL-00001\" summary=\"First Commit: Created all classes, interfaces, and enumerations needed for project. jfx file still default. also missing controllers and launcher.\">\n      <created>1668548555976</created>\n      <option name=\"number\" value=\"00001\" />\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1668548555976</updated>\n    </task>\n    <task id=\"LOCAL-00002\" summary=\"Changes to NY Pizza Page. Not yet complete.\">\n      <created>1669056700086</created>\n      <option name=\"number\" value=\"00002\" />\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1669056700086</updated>\n    </task>\n    <option name=\"localTasksCounter\" value=\"3\" />\n    <servers />\n  </component>\n  <component name=\"TypeScriptGeneratedFilesManager\">\n    <option name=\"version\" value=\"3\" />\n  </component>\n  <component name=\"Vcs.Log.Tabs.Properties\">\n    <option name=\"TAB_STATES\">\n      <map>\n        <entry key=\"MAIN\">\n          <value>\n            <State />\n          </value>\n        </entry>\n      </map>\n    </option>\n  </component>\n  <component name=\"VcsManagerConfiguration\">\n    <option name=\"ADD_EXTERNAL_FILES_SILENTLY\" value=\"true\" />\n    <MESSAGE value=\"First Commit: Created all classes, interfaces, and enumerations needed for project. jfx file still default. also missing controllers and launcher.\" />\n    <MESSAGE value=\"TouchUps\" />\n    <MESSAGE value=\"Changes to NY Pizza Page. Not yet complete.\" />\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Changes to NY Pizza Page. Not yet complete.\" />\n  </component>\n  <component name=\"XDebuggerManager\">\n    <breakpoint-manager>\n      <breakpoints>\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\n          <url>file://$PROJECT_DIR$/src/main/java/com/example/project4/Deluxe.java</url>\n          <line>9</line>\n          <option name=\"timeStamp\" value=\"1\" />\n        </line-breakpoint>\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\n          <url>file://$PROJECT_DIR$/src/main/java/com/example/project4/Pizza.java</url>\n          <line>37</line>\n          <option name=\"timeStamp\" value=\"6\" />\n        </line-breakpoint>\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\n          <url>file://$PROJECT_DIR$/src/main/java/com/example/project4/Pizza.java</url>\n          <line>38</line>\n          <option name=\"timeStamp\" value=\"7\" />\n        </line-breakpoint>\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\n          <url>file://$PROJECT_DIR$/src/main/java/com/example/project4/Pizza.java</url>\n          <line>39</line>\n          <option name=\"timeStamp\" value=\"8\" />\n        </line-breakpoint>\n        <breakpoint enabled=\"true\" type=\"java-exception\">\n          <properties class=\"java.lang.NullPointerException\" package=\"java.lang\" />\n          <option name=\"timeStamp\" value=\"12\" />\n        </breakpoint>\n      </breakpoints>\n    </breakpoint-manager>\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 5362a7d0952b2e398bfa9661165522901419425c)
++++ b/.idea/workspace.xml	(date 1669079168221)
+@@ -4,16 +4,17 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="94beb78b-c834-418d-87ea-4ba963e59ab8" name="Changes" comment="Changes to NY Pizza Page. Not yet complete.">
++    <list default="true" id="94beb78b-c834-418d-87ea-4ba963e59ab8" name="Changes" comment="NY Pizza Page finished except for add order and image switch">
++      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/project4/ChicagoPizzaController.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project4/BBQ.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project4/BBQ.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project4/BYO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project4/BYO.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project4/ChicagoPizza.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project4/ChicagoPizza.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project4/Crust.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project4/Crust.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project4/HomePageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project4/HomePageController.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project4/Meatzza.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project4/Meatzza.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project4/NYPizzaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project4/NYPizzaController.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project4/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project4/Order.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project4/Size.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project4/Size.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/project4/NewYorkPizza.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/project4/NewYorkPizza.fxml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project4/Pizza.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project4/Pizza.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/project4/ChicagoPizza.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/project4/ChicagoPizza.fxml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/project4/CurrentOrder.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/project4/CurrentOrder.fxml" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -25,8 +26,8 @@
+       <list>
+         <option value="Interface" />
+         <option value="Enum" />
+-        <option value="Class" />
+         <option value="FxmlFile" />
++        <option value="Class" />
+       </list>
+     </option>
+   </component>
+@@ -69,6 +70,26 @@
+       <recent name="" />
+     </key>
+   </component>
++  <component name="RunManager">
++    <configuration name="RUPizzaMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
++      <option name="MAIN_CLASS_NAME" value="com.example.project4.RUPizzaMain" />
++      <module name="Project4" />
++      <extension name="coverage">
++        <pattern>
++          <option name="PATTERN" value="com.example.project4.*" />
++          <option name="ENABLED" value="true" />
++        </pattern>
++      </extension>
++      <method v="2">
++        <option name="Make" enabled="true" />
++      </method>
++    </configuration>
++    <recent_temporary>
++      <list>
++        <item itemvalue="Application.RUPizzaMain" />
++      </list>
++    </recent_temporary>
++  </component>
+   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+   <component name="TaskManager">
+     <task active="true" id="Default" summary="Default task">
+@@ -78,7 +99,7 @@
+       <option name="presentableId" value="Default" />
+       <updated>1668447937952</updated>
+       <workItem from="1668447939170" duration="17409000" />
+-      <workItem from="1668995284268" duration="19726000" />
++      <workItem from="1668995284268" duration="32820000" />
+     </task>
+     <task id="LOCAL-00001" summary="First Commit: Created all classes, interfaces, and enumerations needed for project. jfx file still default. also missing controllers and launcher.">
+       <created>1668548555976</created>
+@@ -94,7 +115,14 @@
+       <option name="project" value="LOCAL" />
+       <updated>1669056700086</updated>
+     </task>
+-    <option name="localTasksCounter" value="3" />
++    <task id="LOCAL-00003" summary="NY Pizza Page finished except for add order and image switch">
++      <created>1669063542739</created>
++      <option name="number" value="00003" />
++      <option name="presentableId" value="LOCAL-00003" />
++      <option name="project" value="LOCAL" />
++      <updated>1669063542739</updated>
++    </task>
++    <option name="localTasksCounter" value="4" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+@@ -116,36 +144,22 @@
+     <MESSAGE value="First Commit: Created all classes, interfaces, and enumerations needed for project. jfx file still default. also missing controllers and launcher." />
+     <MESSAGE value="TouchUps" />
+     <MESSAGE value="Changes to NY Pizza Page. Not yet complete." />
+-    <option name="LAST_COMMIT_MESSAGE" value="Changes to NY Pizza Page. Not yet complete." />
++    <MESSAGE value="NY Pizza Page finished except for add order and image switch" />
++    <option name="LAST_COMMIT_MESSAGE" value="NY Pizza Page finished except for add order and image switch" />
+   </component>
+   <component name="XDebuggerManager">
+     <breakpoint-manager>
+       <breakpoints>
+-        <line-breakpoint enabled="true" type="java-line">
+-          <url>file://$PROJECT_DIR$/src/main/java/com/example/project4/Deluxe.java</url>
+-          <line>9</line>
+-          <option name="timeStamp" value="1" />
+-        </line-breakpoint>
+-        <line-breakpoint enabled="true" type="java-line">
+-          <url>file://$PROJECT_DIR$/src/main/java/com/example/project4/Pizza.java</url>
+-          <line>37</line>
+-          <option name="timeStamp" value="6" />
+-        </line-breakpoint>
+-        <line-breakpoint enabled="true" type="java-line">
+-          <url>file://$PROJECT_DIR$/src/main/java/com/example/project4/Pizza.java</url>
+-          <line>38</line>
+-          <option name="timeStamp" value="7" />
+-        </line-breakpoint>
+-        <line-breakpoint enabled="true" type="java-line">
+-          <url>file://$PROJECT_DIR$/src/main/java/com/example/project4/Pizza.java</url>
+-          <line>39</line>
+-          <option name="timeStamp" value="8" />
+-        </line-breakpoint>
+         <breakpoint enabled="true" type="java-exception">
+           <properties class="java.lang.NullPointerException" package="java.lang" />
+           <option name="timeStamp" value="12" />
+         </breakpoint>
+       </breakpoints>
+     </breakpoint-manager>
++    <pin-to-top-manager>
++      <pinned-members>
++        <PinnedItemInfo parentTag="com.example.project4.Order" memberName="orders" />
++      </pinned-members>
++    </pin-to-top-manager>
+   </component>
+ </project>
+\ No newline at end of file
+Index: src/main/java/com/example/project4/ChicagoPizzaController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/example/project4/ChicagoPizzaController.java b/src/main/java/com/example/project4/ChicagoPizzaController.java
+new file mode 100644
+--- /dev/null	(date 1669068190115)
++++ b/src/main/java/com/example/project4/ChicagoPizzaController.java	(date 1669068190115)
+@@ -0,0 +1,175 @@
++package com.example.project4;
++
++        import javafx.collections.FXCollections;
++        import javafx.collections.ObservableList;
++        import javafx.event.ActionEvent;
++        import javafx.fxml.FXML;
++        import javafx.fxml.Initializable;
++        import javafx.scene.control.*;
++        import javafx.scene.image.ImageView;
++
++        import java.net.URL;
++        import java.util.ResourceBundle;
++
++public class ChicagoPizzaController implements Initializable {
++
++    private PizzaFactory factory;
++    private Pizza currentPizza;
++
++    private final Style [] styleOptions = {
++            Style.DELUXE,
++            Style.BBQ,
++            Style.MEATZZA,
++            Style.BYO
++    };
++
++
++    @FXML
++    private Button addToppingButton, remToppingButton;
++    @FXML
++    private TextField crustType;
++
++    @FXML
++    private ImageView chiPizzaImage;
++
++    @FXML
++    private ListView<Topping> opList;
++
++    @FXML
++    private TextField pizzaPrice;
++
++    @FXML
++    private ToggleGroup pizzaSize;
++
++    @FXML
++    private ComboBox<Style> pizzaSyle;
++
++    @FXML
++    private ListView<Topping> selList;
++
++    @FXML
++    private RadioButton smallPizza, mediumPizza, largePizza;
++
++    private ObservableList<Topping> toppings;
++    private ObservableList<Topping> selected;
++
++    @Override
++    public void initialize(URL url, ResourceBundle resourceBundle) {
++        toppings = FXCollections.observableArrayList(Topping.getAll());
++        selected = FXCollections.observableArrayList();
++        opList.setItems(toppings);
++        selList.setItems(selected);
++        pizzaSyle.getItems().addAll(styleOptions);
++        crustType.setEditable(false);
++        pizzaPrice.setEditable(false);
++
++        factory = new ChicagoPizza();
++        pizzaSyle.setValue(Style.DELUXE);
++
++        updatePage(Style.DELUXE);
++    }
++
++    @FXML
++    Pizza addToOrder(ActionEvent event) {
++        return currentPizza;
++    }
++
++    @FXML
++    void addTopping(ActionEvent event) {
++        Topping t = opList.getSelectionModel().getSelectedItem();
++        if(t==null)
++            return;
++        selList.getItems().add(t);
++        currentPizza.add(t);
++        opList.getItems().remove(t);
++        pizzaPrice.setText(Double.toString(currentPizza.price()));
++        if(currentPizza.getNumToppings()==7)
++            addToppingButton.setDisable(true);
++    }
++
++    @FXML
++    void remTopping(ActionEvent event) {
++        Topping t = selList.getSelectionModel().getSelectedItem();
++        if(t==null)
++            return;
++        selList.getItems().remove(t);
++        currentPizza.remove(t);
++        opList.getItems().add(t);
++        pizzaPrice.setText(Double.toString(currentPizza.price()));
++        if(currentPizza.getNumToppings()<7)
++            addToppingButton.setDisable(false);
++    }
++
++    @FXML
++    void changeSize(ActionEvent event) {
++        currentPizza.setSize(
++                Size.idSize(((RadioButton)pizzaSize.getSelectedToggle()).getText())
++        );
++        pizzaPrice.setText(Double.toString(currentPizza.price()));
++    }
++
++    @FXML
++    void styleSelection(ActionEvent event) {
++        Style currentSelection = pizzaSyle.getValue();
++        switch (currentSelection){
++            case DELUXE -> updatePage(Style.DELUXE);
++
++            case BBQ -> updatePage(Style.BBQ);
++
++            case MEATZZA -> updatePage(Style.MEATZZA);
++
++            case BYO -> updatePage(Style.BYO);
++        }
++    }
++
++    void updatePage(Style style){
++        switch (style){
++            case DELUXE -> {
++                currentPizza = factory.createDeluxe();
++                selected.removeAll(Topping.getAll());
++                selected.addAll(Topping.getDeluxe());
++                disableButtons();
++            }
++            case BBQ -> {
++                currentPizza = factory.createBBQChicken();
++                selected.removeAll(Topping.getAll());
++                selected.addAll(Topping.getBBQ());
++                disableButtons();
++            }
++            case MEATZZA -> {
++                currentPizza = factory.createMeatzza();
++                selected.removeAll(Topping.getAll());
++                selected.addAll(Topping.getMeatzza());
++                disableButtons();
++            }
++            case BYO -> {
++                currentPizza = factory.createBuildYourOwn();
++                toppings.removeAll(Topping.getAll());
++                toppings.addAll(Topping.getAll());
++                selected.removeAll(Topping.getAll());
++                enableButtons();
++            }
++            default -> factory.createBuildYourOwn();
++        }
++        currentPizza.setSize(
++                Size.idSize(((RadioButton)pizzaSize.getSelectedToggle()).getText())
++        );
++        selList.setItems(selected);
++        crustType.setText(currentPizza.getCrust().toString());
++        pizzaPrice.setText(Double.toString(currentPizza.price()));
++    }
++
++    void disableButtons (){
++        addToppingButton.setDisable(true);
++        remToppingButton.setDisable(true);
++        opList.setDisable(true);
++    }
++
++    void enableButtons (){
++        addToppingButton.setDisable(false);
++        remToppingButton.setDisable(false);
++        opList.setDisable(false);
++    }
++}
++
++

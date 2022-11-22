@@ -1,28 +1,50 @@
 package com.example.project4;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Order implements Customizable{
 
     private ArrayList<Pizza> orders;
-    private boolean orderTotal;
+    private double orderTotal;
     private int orderNum;
-    private double price;
 
-    public Order(boolean orderTotal, int orderNum, double price) {
-        this.orderTotal = orderTotal;
+    private double salesTax = .06625;
+
+    public Order(int orderNum) {
+        this.orders = new ArrayList<>();
         this.orderNum = orderNum;
-        this.price = price;
     }
 
-    /* TODO  Methods to implement
-//    -getprice/generate price
-//    -getters and setters for instance variables
-    -implement add/remove for adding and removing pizzas from order
-    -write tostring method
-        - will use tostring from pizza
-     */
+    @Override
+    public boolean add(Object obj) {
+        boolean flag = false;
+        if( !orders.contains(obj)){
+            orders.add((Pizza) obj);
+            flag = true;
+            orderTotal+=((Pizza) obj).price();
+        }
+        return flag;
+    }
+
+    @Override
+    public boolean remove(Object obj) {
+        if (orders.remove((Pizza) obj)){
+            orderTotal-=((Pizza) obj).price();
+            return true;
+        }
+        return false;
+    }
+
+    public void clearOrder(){
+        this.orderTotal = 0;
+        this.orders = new ArrayList<>();
+    }
     public ArrayList<Pizza> getOrders() {
+        if(orders ==null)
+            orders = new ArrayList<>();
         return orders;
     }
 
@@ -30,12 +52,26 @@ public class Order implements Customizable{
         this.orders = orders;
     }
 
-    public boolean isOrderTotal() {
-        return orderTotal;
+    private void updatePrice(){
+        orderTotal=0;
+        for(Pizza p : orders){
+            orderTotal+=p.price();
+        }
     }
 
-    public void setOrderTotal(boolean orderTotal) {
-        this.orderTotal = orderTotal;
+    public double getOrderSubTotal(){
+        BigDecimal b = new BigDecimal(orderTotal).setScale(2, RoundingMode.DOWN);
+        return b.doubleValue();
+    }
+
+    public double getSalesTax(){
+        BigDecimal b = new BigDecimal(orderTotal*salesTax).setScale(2, RoundingMode.DOWN);
+        return b.doubleValue();
+    }
+
+    public double getOrderTotal(){
+        BigDecimal b = new BigDecimal(orderTotal+(orderTotal*salesTax)).setScale(2, RoundingMode.DOWN);
+        return b.doubleValue();
     }
 
     public int getOrderNum() {
@@ -46,25 +82,9 @@ public class Order implements Customizable{
         this.orderNum = orderNum;
     }
 
-
-    @Override
-    public boolean add(Object obj) {
-        boolean flag = false;
-        if( !orders.contains(obj)){
-            orders.add((Pizza) obj);
-            flag = true;
-        }
-        return flag;
-    }
-
-    @Override
-    public boolean remove(Object obj) {
-        return orders.remove((Pizza) obj);
-    }
-
     @Override
     public String toString() {
-        return   orders + ", " + orderTotal + ", " + orderNum + ", " + price;
+        return   orders + ", " + orderTotal + ", " + orderNum + ", ";
     }
 
 }

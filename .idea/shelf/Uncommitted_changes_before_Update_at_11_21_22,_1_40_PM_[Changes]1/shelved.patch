@@ -1,0 +1,1070 @@
+Index: src/main/java/com/example/project4/HelloApplication.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/example/project4/HelloApplication.java b/src/main/java/com/example/project4/RUPizzaMain.java
+rename from src/main/java/com/example/project4/HelloApplication.java
+rename to src/main/java/com/example/project4/RUPizzaMain.java
+--- a/src/main/java/com/example/project4/HelloApplication.java	
++++ b/src/main/java/com/example/project4/RUPizzaMain.java	
+@@ -2,18 +2,22 @@
+ 
+ import javafx.application.Application;
+ import javafx.fxml.FXMLLoader;
++import javafx.scene.Parent;
+ import javafx.scene.Scene;
++import javafx.scene.layout.AnchorPane;
++import javafx.scene.layout.BorderPane;
+ import javafx.stage.Stage;
+ 
+ import java.io.IOException;
++import java.util.Objects;
+ 
+-public class HelloApplication extends Application {
++public class RUPizzaMain extends Application {
+     @Override
+     public void start(Stage stage) throws IOException {
+-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("home-page.fxml"));
+-        Scene scene = new Scene(fxmlLoader.load(), 320, 240);
+-        stage.setTitle("Hello!");
+-        stage.setScene(scene);
++        Parent home = FXMLLoader.load((Objects.requireNonNull(getClass().getResource("HomePage.fxml"))));
++        Scene homeScene = new Scene(home);
++        stage.setTitle("RU Pizzeria");
++        stage.setScene(homeScene);
+         stage.show();
+     }
+ 
+Index: src/main/java/com/example/project4/BYO.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/example/project4/BYO.java b/src/main/java/com/example/project4/BYO.java
+--- a/src/main/java/com/example/project4/BYO.java	
++++ b/src/main/java/com/example/project4/BYO.java	
+@@ -1,6 +1,10 @@
+ package com.example.project4;
+ 
+ public class BYO extends Pizza{
++    public BYO() {
++        super();
++    }
++
+     @Override
+     public double price() {
+         return 0;
+Index: src/main/java/com/example/project4/Deluxe.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/example/project4/Deluxe.java b/src/main/java/com/example/project4/Deluxe.java
+--- a/src/main/java/com/example/project4/Deluxe.java	
++++ b/src/main/java/com/example/project4/Deluxe.java	
+@@ -5,6 +5,7 @@
+     private final Topping[] toppings = {Topping.SAUSAGE, Topping.GREENPEPPER, Topping.MUSHROOM, Topping.ONION, Topping.PEPPERONI};
+ 
+     public Deluxe(){
++        super();
+         for (Topping t : toppings)
+                 this.add(t);
+     }
+Index: src/main/java/com/example/project4/Meatzza.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/example/project4/Meatzza.java b/src/main/java/com/example/project4/Meatzza.java
+--- a/src/main/java/com/example/project4/Meatzza.java	
++++ b/src/main/java/com/example/project4/Meatzza.java	
+@@ -1,12 +1,15 @@
+ package com.example.project4;
+ 
++import java.util.ArrayList;
++
+ public class Meatzza extends Pizza{
+-    public Meatzza(Crust crust, Size size) {
+-        super(crust, size);
+-    }
++
++    private final ArrayList<Topping> toppings = Topping.getMeatzza();
+ 
+     public Meatzza() {
+         super();
++        for (Topping t : toppings)
++            this.add(t);
+     }
+ 
+     @Override
+Index: src/main/java/com/example/project4/BBQ.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/example/project4/BBQ.java b/src/main/java/com/example/project4/BBQ.java
+--- a/src/main/java/com/example/project4/BBQ.java	
++++ b/src/main/java/com/example/project4/BBQ.java	
+@@ -1,6 +1,16 @@
+ package com.example.project4;
+ 
++import java.util.ArrayList;
++
+ public class BBQ extends Pizza{
++
++    private final ArrayList<Topping> toppings = Topping.getBBQ();
++    public BBQ() {
++        super();
++        for (Topping t : toppings)
++            this.add(t);
++    }
++
+     @Override
+     public double price() {
+         return 0;
+Index: src/main/java/com/example/project4/Pizza.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/example/project4/Pizza.java b/src/main/java/com/example/project4/Pizza.java
+--- a/src/main/java/com/example/project4/Pizza.java	
++++ b/src/main/java/com/example/project4/Pizza.java	
+@@ -7,24 +7,11 @@
+     private ArrayList<Topping> toppings;
+     private Crust crust;
+     private Size size;
+-    Meatzza meatzza = new Meatzza();
+-    public Pizza() {
+-
+-    }
+ 
+     public abstract double price();
+ 
+-    public Pizza(Crust crust, Size size) {
+-        this.crust = crust;
+-        this.size = size;
+-    }
+-
+-    public Meatzza getMeatzza() {
+-        return meatzza;
+-    }
+-
+-    public void setMeatzza(Meatzza meatzza) {
+-        this.meatzza = meatzza;
++    public Pizza() {
++        this.toppings = new ArrayList<>();
+     }
+ 
+     public Size getSize() {
+@@ -60,10 +47,10 @@
+         return false;
+     }
+ 
+-    @Override
+-    public String toString() {
+-        return meatzza + "(" + crust + ")" + ", " + toppings + " , " + size + ", " + price();
+-    }
++//    @Override
++//    public String toString() {
++//        return "(" + crust + ")" + ", " + toppings + " , " + size + ", " + price();
++//    }
+ 
+ 
+ }
+Index: src/main/resources/com/example/project4/home-page.fxml
+===================================================================
+diff --git a/src/main/resources/com/example/project4/home-page.fxml b/src/main/resources/com/example/project4/home-page.fxml
+deleted file mode 100644
+--- a/src/main/resources/com/example/project4/home-page.fxml	
++++ /dev/null	
+@@ -1,85 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-
+-<?import javafx.scene.control.Button?>
+-<?import javafx.scene.control.Label?>
+-<?import javafx.scene.image.Image?>
+-<?import javafx.scene.image.ImageView?>
+-<?import javafx.scene.layout.AnchorPane?>
+-<?import javafx.scene.layout.ColumnConstraints?>
+-<?import javafx.scene.layout.GridPane?>
+-<?import javafx.scene.layout.RowConstraints?>
+-<?import javafx.scene.text.Font?>
+-
+-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+-   <children>
+-      <Label layoutX="130.0" layoutY="22.0" prefHeight="56.0" prefWidth="238.0" text="RU Pizzeria">
+-         <font>
+-            <Font name="Baskerville" size="45.0" />
+-         </font>
+-      </Label>
+-      <GridPane layoutX="49.0" layoutY="78.0" prefHeight="400.0" prefWidth="400.0">
+-        <columnConstraints>
+-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+-        </columnConstraints>
+-        <rowConstraints>
+-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+-        </rowConstraints>
+-         <children>
+-            <AnchorPane prefHeight="200.0" prefWidth="200.0">
+-               <children>
+-                  <Button alignment="CENTER" contentDisplay="TOP" layoutX="22.0" layoutY="22.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#selectNYS" prefHeight="157.0" prefWidth="157.0" text="New York Style">
+-                     <graphic>
+-                        <ImageView fitHeight="129.0" fitWidth="131.0" pickOnBounds="true" preserveRatio="true">
+-                           <image>
+-                              <Image url="@../../../../nyc.jpeg" />
+-                           </image>
+-                        </ImageView>
+-                     </graphic>
+-                  </Button>
+-               </children>
+-            </AnchorPane>
+-            <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
+-               <children>
+-                  <Button contentDisplay="TOP" layoutX="22.0" layoutY="22.0" mnemonicParsing="false" onAction="#selectChiStyle" prefHeight="157.0" prefWidth="157.0" text="Chicago Style">
+-                     <graphic>
+-                        <ImageView fitHeight="126.0" fitWidth="137.0" pickOnBounds="true" preserveRatio="true">
+-                           <image>
+-                              <Image url="@../../../../chicago.jpeg" />
+-                           </image>
+-                        </ImageView>
+-                     </graphic>
+-                  </Button>
+-               </children>
+-            </AnchorPane>
+-            <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
+-               <children>
+-                  <Button contentDisplay="TOP" layoutX="22.0" layoutY="22.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#selectSO" prefHeight="157.0" prefWidth="157.0" text="Store Orders">
+-                     <graphic>
+-                        <ImageView fitHeight="123.0" fitWidth="137.0" pickOnBounds="true" preserveRatio="true">
+-                           <image>
+-                              <Image url="@../../../../pizzeria.jpeg" />
+-                           </image>
+-                        </ImageView>
+-                     </graphic>
+-                  </Button>
+-               </children>
+-            </AnchorPane>
+-            <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+-               <children>
+-                  <Button contentDisplay="TOP" layoutX="22.0" layoutY="22.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#selectCO" prefHeight="157.0" prefWidth="157.0" text="Current Order">
+-                     <graphic>
+-                        <ImageView fitHeight="130.0" fitWidth="134.0" pickOnBounds="true" preserveRatio="true">
+-                           <image>
+-                              <Image url="@../../../../shoppingcart.png" />
+-                           </image>
+-                        </ImageView>
+-                     </graphic>
+-                  </Button>
+-               </children>
+-            </AnchorPane>
+-         </children>
+-      </GridPane>
+-   </children>
+-</AnchorPane>
+Index: src/main/resources/com/example/project4/ny-style-page.fxml
+===================================================================
+diff --git a/src/main/resources/com/example/project4/ny-style-page.fxml b/src/main/resources/com/example/project4/ny-style-page.fxml
+deleted file mode 100644
+--- a/src/main/resources/com/example/project4/ny-style-page.fxml	
++++ /dev/null	
+@@ -1,48 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-
+-<?import javafx.scene.control.Button?>
+-<?import javafx.scene.control.Label?>
+-<?import javafx.scene.control.ListView?>
+-<?import javafx.scene.control.RadioButton?>
+-<?import javafx.scene.control.ToggleGroup?>
+-<?import javafx.scene.layout.AnchorPane?>
+-<?import javafx.scene.layout.ColumnConstraints?>
+-<?import javafx.scene.layout.GridPane?>
+-<?import javafx.scene.layout.RowConstraints?>
+-<?import javafx.scene.text.Font?>
+-
+-
+-<AnchorPane prefHeight="500.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project4.NyStylePage">
+-   <children>
+-      <Label layoutX="104.0" layoutY="14.0" text="NY Style Pizza">
+-         <font>
+-            <Font name="Camber" size="45.0" />
+-         </font>
+-      </Label>
+-      <GridPane layoutX="32.0" layoutY="103.0" prefHeight="121.0" prefWidth="145.0">
+-        <columnConstraints>
+-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+-        </columnConstraints>
+-        <rowConstraints>
+-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+-        </rowConstraints>
+-         <children>
+-            <RadioButton mnemonicParsing="false" text="Build Your Own" GridPane.rowIndex="3">
+-               <toggleGroup>
+-                  <ToggleGroup fx:id="pizzaStyleNY" />
+-               </toggleGroup>
+-            </RadioButton>
+-            <RadioButton mnemonicParsing="false" prefWidth="121.0" text="BBQ Chicken" toggleGroup="$pizzaStyleNY" GridPane.rowIndex="2" />
+-            <RadioButton mnemonicParsing="false" text="Mushroom" toggleGroup="$pizzaStyleNY" GridPane.rowIndex="1" />
+-            <RadioButton mnemonicParsing="false" selected="true" text="Deluxe" toggleGroup="$pizzaStyleNY" />
+-         </children>
+-      </GridPane>
+-      <ListView layoutX="32.0" layoutY="264.0" prefHeight="196.0" prefWidth="179.0" />
+-      <ListView layoutX="290.0" layoutY="264.0" prefHeight="196.0" prefWidth="179.0" />
+-      <Button layoutX="231.0" layoutY="336.0" mnemonicParsing="false" text="--&gt;" />
+-      <Button layoutX="231.0" layoutY="362.0" mnemonicParsing="false" text="&lt;--" />
+-   </children>
+-</AnchorPane>
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	
++++ b/.idea/workspace.xml	
+@@ -5,11 +5,29 @@
+   </component>
+   <component name="ChangeListManager">
+     <list default="true" id="94beb78b-c834-418d-87ea-4ba963e59ab8" name="Changes" comment="First Commit: Created all classes, interfaces, and enumerations needed for project. jfx file still default. also missing controllers and launcher.">
++      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/project4/NYPizzaController.java" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/project4/ChicagoPizza.fxml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/project4/CurrentOrder.fxml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/project4/HomePage.fxml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/project4/NewYorkPizza.fxml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/project4/StoreOrders.fxml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/chicago.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/chicago.jpeg" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project4/BBQ.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project4/BBQ.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project4/BYO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project4/BYO.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project4/Deluxe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project4/Deluxe.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project4/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project4/RUPizzaMain.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project4/Meatzza.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project4/Meatzza.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project4/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project4/Order.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project4/Pizza.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project4/Pizza.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project4/StoreOrder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project4/StoreOrder.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project4/Style.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project4/Style.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project4/Topping.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project4/Topping.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project4/homePageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project4/HomePageController.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/nyc.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/nyc.jpeg" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/pizzeria.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/pizzeria.jpeg" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/project4/home-page.fxml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/project4/ny-style-page.fxml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/shoppingcart.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/shoppingcart.png" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -20,8 +38,8 @@
+     <option name="RECENT_TEMPLATES">
+       <list>
+         <option value="Interface" />
+-        <option value="Class" />
+         <option value="Enum" />
++        <option value="Class" />
+         <option value="FxmlFile" />
+       </list>
+     </option>
+@@ -40,19 +58,27 @@
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+   </component>
+-  <component name="PropertiesComponent">{
+-  &quot;keyToString&quot;: {
+-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;
+-  }
+-}</component>
++  <component name="PropertiesComponent"><![CDATA[{
++  "keyToString": {
++    "ASKED_ADD_EXTERNAL_FILES": "true",
++    "RunOnceActivity.OpenProjectViewOnStart": "true",
++    "RunOnceActivity.ShowReadmeOnStart": "true",
++    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
++    "WebServerToolWindowFactoryState": "false",
++    "node.js.detected.package.eslint": "true",
++    "node.js.detected.package.tslint": "true",
++    "node.js.selected.package.eslint": "(autodetect)",
++    "node.js.selected.package.tslint": "(autodetect)",
++    "project.structure.last.edited": "Project",
++    "project.structure.proportion": "0.0",
++    "project.structure.side.proportion": "0.2"
++  }
++}]]></component>
++  <component name="RecentsManager">
++    <key name="MoveFile.RECENT_KEYS">
++      <recent name="$PROJECT_DIR$/src/main/resources" />
++    </key>
++  </component>
+   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+   <component name="TaskManager">
+     <task active="true" id="Default" summary="Default task">
+@@ -62,6 +88,7 @@
+       <option name="presentableId" value="Default" />
+       <updated>1668447937952</updated>
+       <workItem from="1668447939170" duration="17409000" />
++      <workItem from="1668995284268" duration="12573000" />
+     </task>
+     <task id="LOCAL-00001" summary="First Commit: Created all classes, interfaces, and enumerations needed for project. jfx file still default. also missing controllers and launcher.">
+       <created>1668548555976</created>
+@@ -92,4 +119,45 @@
+     <MESSAGE value="First Commit: Created all classes, interfaces, and enumerations needed for project. jfx file still default. also missing controllers and launcher." />
+     <option name="LAST_COMMIT_MESSAGE" value="First Commit: Created all classes, interfaces, and enumerations needed for project. jfx file still default. also missing controllers and launcher." />
+   </component>
++  <component name="XDebuggerManager">
++    <breakpoint-manager>
++      <breakpoints>
++        <line-breakpoint enabled="true" type="java-line">
++          <url>file://$PROJECT_DIR$/src/main/java/com/example/project4/Deluxe.java</url>
++          <line>8</line>
++          <option name="timeStamp" value="1" />
++        </line-breakpoint>
++        <line-breakpoint enabled="true" type="java-line">
++          <url>file://$PROJECT_DIR$/src/main/java/com/example/project4/Deluxe.java</url>
++          <line>9</line>
++          <option name="timeStamp" value="2" />
++        </line-breakpoint>
++        <line-breakpoint enabled="true" type="java-line">
++          <url>file://$PROJECT_DIR$/src/main/java/com/example/project4/Pizza.java</url>
++          <line>37</line>
++          <option name="timeStamp" value="6" />
++        </line-breakpoint>
++        <line-breakpoint enabled="true" type="java-line">
++          <url>file://$PROJECT_DIR$/src/main/java/com/example/project4/Pizza.java</url>
++          <line>38</line>
++          <option name="timeStamp" value="7" />
++        </line-breakpoint>
++        <line-breakpoint enabled="true" type="java-line">
++          <url>file://$PROJECT_DIR$/src/main/java/com/example/project4/Pizza.java</url>
++          <line>39</line>
++          <option name="timeStamp" value="8" />
++        </line-breakpoint>
++        <line-breakpoint enabled="true" type="java-line">
++          <url>file://$PROJECT_DIR$/src/main/java/com/example/project4/NYPizzaController.java</url>
++          <line>109</line>
++          <option name="timeStamp" value="10" />
++        </line-breakpoint>
++        <line-breakpoint enabled="true" type="java-line">
++          <url>file://$PROJECT_DIR$/src/main/java/com/example/project4/NYPizzaController.java</url>
++          <line>110</line>
++          <option name="timeStamp" value="11" />
++        </line-breakpoint>
++      </breakpoints>
++    </breakpoint-manager>
++  </component>
+ </project>
+\ No newline at end of file
+Index: src/main/java/com/example/project4/Topping.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/example/project4/Topping.java b/src/main/java/com/example/project4/Topping.java
+--- a/src/main/java/com/example/project4/Topping.java	
++++ b/src/main/java/com/example/project4/Topping.java	
+@@ -1,5 +1,8 @@
+ package com.example.project4;
+ 
++import java.util.ArrayList;
++import java.util.Arrays;
++
+ public enum Topping {
+     SAUSAGE("Sausage"),
+     PEPPERONI("Pepperoni"),
+@@ -24,4 +27,31 @@
+     public String getTopping(){
+         return topping;
+     }
++
++    public static ArrayList<Topping> getAll(){
++        return new ArrayList<>(Arrays.asList(
++                SAUSAGE, PROVOLONE, PEPPERONI, PINEAPPLE, GREENPEPPER, OLIVES, ONION, CHEDDAR, MUSHROOM, BEEF, HAM,
++                BACON, BBQCHICKEN
++        ));
++    }
++
++    public static ArrayList<Topping> getDeluxe(){
++        return new ArrayList<>(Arrays.asList(
++                SAUSAGE, PEPPERONI, GREENPEPPER, ONION, MUSHROOM
++        ));
++    }
++
++    public static ArrayList<Topping> getBBQ(){
++        return new ArrayList<>(Arrays.asList(
++                BBQCHICKEN, GREENPEPPER, PROVOLONE, CHEDDAR
++        ));
++    }
++
++    public static ArrayList<Topping> getMeatzza(){
++        return new ArrayList<>(Arrays.asList(
++                SAUSAGE, PEPPERONI, BEEF, HAM
++        ));
++    }
++
++
+ }
+Index: src/main/resources/com/example/project4/ChicagoPizza.fxml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/resources/com/example/project4/ChicagoPizza.fxml b/src/main/resources/com/example/project4/ChicagoPizza.fxml
+new file mode 100644
+--- /dev/null	
++++ b/src/main/resources/com/example/project4/ChicagoPizza.fxml	
+@@ -0,0 +1,14 @@
++<?xml version="1.0" encoding="UTF-8"?>
++
++<?import java.lang.*?>
++<?import java.util.*?>
++<?import javafx.scene.*?>
++<?import javafx.scene.control.*?>
++<?import javafx.scene.layout.*?>
++
++<AnchorPane xmlns="http://javafx.com/javafx"
++            xmlns:fx="http://javafx.com/fxml"
++            fx:controller="com.example.project4.ChiStylePage"
++            prefHeight="400.0" prefWidth="600.0">
++
++</AnchorPane>
+Index: src/main/resources/com/example/project4/HomePage.fxml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/resources/com/example/project4/HomePage.fxml b/src/main/resources/com/example/project4/HomePage.fxml
+new file mode 100644
+--- /dev/null	
++++ b/src/main/resources/com/example/project4/HomePage.fxml	
+@@ -0,0 +1,90 @@
++<?xml version="1.0" encoding="UTF-8"?>
++
++<?import javafx.scene.control.Button?>
++<?import javafx.scene.control.Label?>
++<?import javafx.scene.image.Image?>
++<?import javafx.scene.image.ImageView?>
++<?import javafx.scene.layout.AnchorPane?>
++<?import javafx.scene.layout.BorderPane?>
++<?import javafx.scene.layout.ColumnConstraints?>
++<?import javafx.scene.layout.GridPane?>
++<?import javafx.scene.layout.RowConstraints?>
++<?import javafx.scene.text.Font?>
++
++<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="539.0" prefWidth="551.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project4.HomePageController">
++   <center>
++      <AnchorPane prefHeight="590.0" prefWidth="603.0" BorderPane.alignment="CENTER">
++         <children>
++            <Label layoutX="157.0" layoutY="50.0" prefHeight="56.0" prefWidth="238.0" text="RU Pizzeria">
++               <font>
++                  <Font name="Baskerville" size="45.0" />
++               </font>
++            </Label>
++            <GridPane layoutX="76.0" layoutY="106.0" prefHeight="400.0" prefWidth="400.0">
++               <columnConstraints>
++                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
++                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
++               </columnConstraints>
++               <rowConstraints>
++                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
++                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
++               </rowConstraints>
++               <children>
++                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
++                     <children>
++                        <Button alignment="CENTER" contentDisplay="TOP" layoutX="22.0" layoutY="22.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#selectNYS" prefHeight="157.0" prefWidth="157.0" text="New York Style">
++                           <graphic>
++                              <ImageView fitHeight="129.0" fitWidth="131.0" pickOnBounds="true" preserveRatio="true">
++                                 <image>
++                                    <Image url="@../../../nyc.jpeg" />
++                                 </image>
++                              </ImageView>
++                           </graphic>
++                        </Button>
++                     </children>
++                  </AnchorPane>
++                  <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
++                     <children>
++                        <Button contentDisplay="TOP" layoutX="22.0" layoutY="22.0" mnemonicParsing="false" onAction="#selectChiStyle" prefHeight="157.0" prefWidth="157.0" text="Chicago Style">
++                           <graphic>
++                              <ImageView fitHeight="126.0" fitWidth="137.0" pickOnBounds="true" preserveRatio="true">
++                                 <image>
++                                    <Image url="@../../../chicago.jpeg" />
++                                 </image>
++                              </ImageView>
++                           </graphic>
++                        </Button>
++                     </children>
++                  </AnchorPane>
++                  <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
++                     <children>
++                        <Button contentDisplay="TOP" layoutX="22.0" layoutY="22.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#selectSO" prefHeight="157.0" prefWidth="157.0" text="Store Orders">
++                           <graphic>
++                              <ImageView fitHeight="123.0" fitWidth="137.0" pickOnBounds="true" preserveRatio="true">
++                                 <image>
++                                    <Image url="@../../../pizzeria.jpeg" />
++                                 </image>
++                              </ImageView>
++                           </graphic>
++                        </Button>
++                     </children>
++                  </AnchorPane>
++                  <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
++                     <children>
++                        <Button contentDisplay="TOP" layoutX="22.0" layoutY="22.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#selectCO" prefHeight="157.0" prefWidth="157.0" text="Current Order">
++                           <graphic>
++                              <ImageView fitHeight="130.0" fitWidth="134.0" pickOnBounds="true" preserveRatio="true">
++                                 <image>
++                                    <Image url="@../../../shoppingcart.png" />
++                                 </image>
++                              </ImageView>
++                           </graphic>
++                        </Button>
++                     </children>
++                  </AnchorPane>
++               </children>
++            </GridPane>
++         </children>
++      </AnchorPane>
++   </center>
++</BorderPane>
+Index: .idea/uiDesigner.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/uiDesigner.xml b/.idea/uiDesigner.xml
+new file mode 100644
+--- /dev/null	
++++ b/.idea/uiDesigner.xml	
+@@ -0,0 +1,124 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="Palette2">
++    <group name="Swing">
++      <item class="com.intellij.uiDesigner.HSpacer" tooltip-text="Horizontal Spacer" icon="/com/intellij/uiDesigner/icons/hspacer.svg" removable="false" auto-create-binding="false" can-attach-label="false">
++        <default-constraints vsize-policy="1" hsize-policy="6" anchor="0" fill="1" />
++      </item>
++      <item class="com.intellij.uiDesigner.VSpacer" tooltip-text="Vertical Spacer" icon="/com/intellij/uiDesigner/icons/vspacer.svg" removable="false" auto-create-binding="false" can-attach-label="false">
++        <default-constraints vsize-policy="6" hsize-policy="1" anchor="0" fill="2" />
++      </item>
++      <item class="javax.swing.JPanel" icon="/com/intellij/uiDesigner/icons/panel.svg" removable="false" auto-create-binding="false" can-attach-label="false">
++        <default-constraints vsize-policy="3" hsize-policy="3" anchor="0" fill="3" />
++      </item>
++      <item class="javax.swing.JScrollPane" icon="/com/intellij/uiDesigner/icons/scrollPane.svg" removable="false" auto-create-binding="false" can-attach-label="true">
++        <default-constraints vsize-policy="7" hsize-policy="7" anchor="0" fill="3" />
++      </item>
++      <item class="javax.swing.JButton" icon="/com/intellij/uiDesigner/icons/button.svg" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="0" hsize-policy="3" anchor="0" fill="1" />
++        <initial-values>
++          <property name="text" value="Button" />
++        </initial-values>
++      </item>
++      <item class="javax.swing.JRadioButton" icon="/com/intellij/uiDesigner/icons/radioButton.svg" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="0" hsize-policy="3" anchor="8" fill="0" />
++        <initial-values>
++          <property name="text" value="RadioButton" />
++        </initial-values>
++      </item>
++      <item class="javax.swing.JCheckBox" icon="/com/intellij/uiDesigner/icons/checkBox.svg" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="0" hsize-policy="3" anchor="8" fill="0" />
++        <initial-values>
++          <property name="text" value="CheckBox" />
++        </initial-values>
++      </item>
++      <item class="javax.swing.JLabel" icon="/com/intellij/uiDesigner/icons/label.svg" removable="false" auto-create-binding="false" can-attach-label="false">
++        <default-constraints vsize-policy="0" hsize-policy="0" anchor="8" fill="0" />
++        <initial-values>
++          <property name="text" value="Label" />
++        </initial-values>
++      </item>
++      <item class="javax.swing.JTextField" icon="/com/intellij/uiDesigner/icons/textField.svg" removable="false" auto-create-binding="true" can-attach-label="true">
++        <default-constraints vsize-policy="0" hsize-policy="6" anchor="8" fill="1">
++          <preferred-size width="150" height="-1" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JPasswordField" icon="/com/intellij/uiDesigner/icons/passwordField.svg" removable="false" auto-create-binding="true" can-attach-label="true">
++        <default-constraints vsize-policy="0" hsize-policy="6" anchor="8" fill="1">
++          <preferred-size width="150" height="-1" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JFormattedTextField" icon="/com/intellij/uiDesigner/icons/formattedTextField.svg" removable="false" auto-create-binding="true" can-attach-label="true">
++        <default-constraints vsize-policy="0" hsize-policy="6" anchor="8" fill="1">
++          <preferred-size width="150" height="-1" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JTextArea" icon="/com/intellij/uiDesigner/icons/textArea.svg" removable="false" auto-create-binding="true" can-attach-label="true">
++        <default-constraints vsize-policy="6" hsize-policy="6" anchor="0" fill="3">
++          <preferred-size width="150" height="50" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JTextPane" icon="/com/intellij/uiDesigner/icons/textPane.svg" removable="false" auto-create-binding="true" can-attach-label="true">
++        <default-constraints vsize-policy="6" hsize-policy="6" anchor="0" fill="3">
++          <preferred-size width="150" height="50" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JEditorPane" icon="/com/intellij/uiDesigner/icons/editorPane.svg" removable="false" auto-create-binding="true" can-attach-label="true">
++        <default-constraints vsize-policy="6" hsize-policy="6" anchor="0" fill="3">
++          <preferred-size width="150" height="50" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JComboBox" icon="/com/intellij/uiDesigner/icons/comboBox.svg" removable="false" auto-create-binding="true" can-attach-label="true">
++        <default-constraints vsize-policy="0" hsize-policy="2" anchor="8" fill="1" />
++      </item>
++      <item class="javax.swing.JTable" icon="/com/intellij/uiDesigner/icons/table.svg" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="6" hsize-policy="6" anchor="0" fill="3">
++          <preferred-size width="150" height="50" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JList" icon="/com/intellij/uiDesigner/icons/list.svg" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="6" hsize-policy="2" anchor="0" fill="3">
++          <preferred-size width="150" height="50" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JTree" icon="/com/intellij/uiDesigner/icons/tree.svg" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="6" hsize-policy="6" anchor="0" fill="3">
++          <preferred-size width="150" height="50" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JTabbedPane" icon="/com/intellij/uiDesigner/icons/tabbedPane.svg" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="3" hsize-policy="3" anchor="0" fill="3">
++          <preferred-size width="200" height="200" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JSplitPane" icon="/com/intellij/uiDesigner/icons/splitPane.svg" removable="false" auto-create-binding="false" can-attach-label="false">
++        <default-constraints vsize-policy="3" hsize-policy="3" anchor="0" fill="3">
++          <preferred-size width="200" height="200" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JSpinner" icon="/com/intellij/uiDesigner/icons/spinner.svg" removable="false" auto-create-binding="true" can-attach-label="true">
++        <default-constraints vsize-policy="0" hsize-policy="6" anchor="8" fill="1" />
++      </item>
++      <item class="javax.swing.JSlider" icon="/com/intellij/uiDesigner/icons/slider.svg" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="0" hsize-policy="6" anchor="8" fill="1" />
++      </item>
++      <item class="javax.swing.JSeparator" icon="/com/intellij/uiDesigner/icons/separator.svg" removable="false" auto-create-binding="false" can-attach-label="false">
++        <default-constraints vsize-policy="6" hsize-policy="6" anchor="0" fill="3" />
++      </item>
++      <item class="javax.swing.JProgressBar" icon="/com/intellij/uiDesigner/icons/progressbar.svg" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="0" hsize-policy="6" anchor="0" fill="1" />
++      </item>
++      <item class="javax.swing.JToolBar" icon="/com/intellij/uiDesigner/icons/toolbar.svg" removable="false" auto-create-binding="false" can-attach-label="false">
++        <default-constraints vsize-policy="0" hsize-policy="6" anchor="0" fill="1">
++          <preferred-size width="-1" height="20" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JToolBar$Separator" icon="/com/intellij/uiDesigner/icons/toolbarSeparator.svg" removable="false" auto-create-binding="false" can-attach-label="false">
++        <default-constraints vsize-policy="0" hsize-policy="0" anchor="0" fill="1" />
++      </item>
++      <item class="javax.swing.JScrollBar" icon="/com/intellij/uiDesigner/icons/scrollbar.svg" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="6" hsize-policy="0" anchor="0" fill="2" />
++      </item>
++    </group>
++  </component>
++</project>
+\ No newline at end of file
+Index: src/main/resources/com/example/project4/StoreOrders.fxml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/resources/com/example/project4/StoreOrders.fxml b/src/main/resources/com/example/project4/StoreOrders.fxml
+new file mode 100644
+--- /dev/null	
++++ b/src/main/resources/com/example/project4/StoreOrders.fxml	
+@@ -0,0 +1,14 @@
++<?xml version="1.0" encoding="UTF-8"?>
++
++<?import java.lang.*?>
++<?import java.util.*?>
++<?import javafx.scene.*?>
++<?import javafx.scene.control.*?>
++<?import javafx.scene.layout.*?>
++
++<AnchorPane xmlns="http://javafx.com/javafx"
++            xmlns:fx="http://javafx.com/fxml"
++            fx:controller="com.example.project4.StoreOrders"
++            prefHeight="400.0" prefWidth="600.0">
++
++</AnchorPane>
+Index: src/main/resources/com/example/project4/CurrentOrder.fxml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/resources/com/example/project4/CurrentOrder.fxml b/src/main/resources/com/example/project4/CurrentOrder.fxml
+new file mode 100644
+--- /dev/null	
++++ b/src/main/resources/com/example/project4/CurrentOrder.fxml	
+@@ -0,0 +1,14 @@
++<?xml version="1.0" encoding="UTF-8"?>
++
++<?import java.lang.*?>
++<?import java.util.*?>
++<?import javafx.scene.*?>
++<?import javafx.scene.control.*?>
++<?import javafx.scene.layout.*?>
++
++<AnchorPane xmlns="http://javafx.com/javafx"
++            xmlns:fx="http://javafx.com/fxml"
++            fx:controller="com.example.project4.CurrentOrder"
++            prefHeight="400.0" prefWidth="600.0">
++
++</AnchorPane>
+Index: src/main/java/com/example/project4/Style.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/example/project4/Style.java b/src/main/java/com/example/project4/Style.java
+--- a/src/main/java/com/example/project4/Style.java	
++++ b/src/main/java/com/example/project4/Style.java	
+@@ -2,7 +2,11 @@
+ 
+ public enum Style {
+     CHI("Chicago"),
+-    NY("New York");
++    NY("New York"),
++    DELUXE("Deluxe"),
++    MEATZZA("Meatzza"),
++    BYO("Build Your Own"),
++    BBQ("BBQ Chicken");
+ 
+     private final String style;
+ 
+Index: src/main/resources/com/example/project4/NewYorkPizza.fxml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/resources/com/example/project4/NewYorkPizza.fxml b/src/main/resources/com/example/project4/NewYorkPizza.fxml
+new file mode 100644
+--- /dev/null	
++++ b/src/main/resources/com/example/project4/NewYorkPizza.fxml	
+@@ -0,0 +1,75 @@
++<?xml version="1.0" encoding="UTF-8"?>
++
++<?import javafx.scene.control.Button?>
++<?import javafx.scene.control.ComboBox?>
++<?import javafx.scene.control.Label?>
++<?import javafx.scene.control.ListView?>
++<?import javafx.scene.control.RadioButton?>
++<?import javafx.scene.control.TextField?>
++<?import javafx.scene.control.ToggleGroup?>
++<?import javafx.scene.image.ImageView?>
++<?import javafx.scene.layout.AnchorPane?>
++<?import javafx.scene.layout.ColumnConstraints?>
++<?import javafx.scene.layout.GridPane?>
++<?import javafx.scene.layout.RowConstraints?>
++<?import javafx.scene.text.Font?>
++
++<AnchorPane prefHeight="587.0" prefWidth="587.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project4.NYPizzaController">
++   <children>
++      <Label layoutX="148.0" layoutY="31.0" text="NY Style Pizza">
++         <font>
++            <Font name="Camber" size="45.0" />
++         </font>
++      </Label>
++      <ListView fx:id="opList" editable="true" layoutX="76.0" layoutY="318.0" prefHeight="196.0" prefWidth="179.0" />
++      <ListView fx:id="selList" editable="true" layoutX="350.0" layoutY="318.0" prefHeight="196.0" prefWidth="179.0" />
++      <Button layoutX="275.0" layoutY="390.0" mnemonicParsing="false" onAction="#addTopping" text="--&gt;" />
++      <Button layoutX="275.0" layoutY="416.0" mnemonicParsing="false" onAction="#remTopping" text="&lt;--" />
++      <ImageView fx:id="nyPizzaImage" fitHeight="150.0" fitWidth="200.0" layoutX="350.0" layoutY="139.0" pickOnBounds="true" preserveRatio="true" />
++      <ComboBox fx:id="pizzaSyle" layoutX="73.0" layoutY="157.0" onAction="#styleSelection" prefWidth="150.0" />
++      <Label layoutX="76.0" layoutY="108.0" text="Pizza Style">
++         <font>
++            <Font name="System Bold" size="18.0" />
++         </font>
++      </Label>
++      <Label layoutX="76.0" layoutY="294.0" text="Toppings">
++         <font>
++            <Font size="19.0" />
++         </font>
++      </Label>
++      <GridPane layoutX="50.0" layoutY="199.0">
++        <columnConstraints>
++          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
++          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
++            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
++        </columnConstraints>
++        <rowConstraints>
++          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
++        </rowConstraints>
++         <children>
++            <AnchorPane prefHeight="200.0" prefWidth="200.0">
++               <children>
++                  <RadioButton fx:id="smallPizza" layoutX="24.0" layoutY="5.0" mnemonicParsing="false" text="small">
++                     <toggleGroup>
++                        <ToggleGroup fx:id="pizzaSize" />
++                     </toggleGroup>
++                  </RadioButton>
++               </children>
++            </AnchorPane>
++            <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
++               <children>
++                  <RadioButton fx:id="mediumPizza" layoutX="16.0" layoutY="5.0" mnemonicParsing="false" selected="true" text="medium" toggleGroup="$pizzaSize" />
++               </children>
++            </AnchorPane>
++            <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2">
++               <children>
++                  <RadioButton fx:id="largePizza" layoutX="14.0" layoutY="5.0" mnemonicParsing="false" text="large" toggleGroup="$pizzaSize" />
++               </children>
++            </AnchorPane>
++         </children>
++      </GridPane>
++      <TextField fx:id="crustType" layoutX="78.0" layoutY="245.0" />
++      <TextField fx:id="pizzaPrice" layoutX="95.0" layoutY="537.0" />
++      <Button layoutX="378.0" layoutY="535.0" mnemonicParsing="false" onAction="#addToOrder" prefHeight="30.0" prefWidth="160.0" text="Add to Order" />
++   </children>
++</AnchorPane>
+Index: src/main/java/com/example/project4/NYPizzaController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/example/project4/NYPizzaController.java b/src/main/java/com/example/project4/NYPizzaController.java
+new file mode 100644
+--- /dev/null	
++++ b/src/main/java/com/example/project4/NYPizzaController.java	
+@@ -0,0 +1,130 @@
++
++
++package com.example.project4;
++
++        import javafx.beans.value.ChangeListener;
++        import javafx.beans.value.ObservableValue;
++        import javafx.collections.FXCollections;
++        import javafx.collections.ObservableList;
++        import javafx.event.ActionEvent;
++        import javafx.fxml.FXML;
++        import javafx.fxml.Initializable;
++        import javafx.scene.control.ComboBox;
++        import javafx.scene.control.ListView;
++        import javafx.scene.control.RadioButton;
++        import javafx.scene.control.TextField;
++        import javafx.scene.control.ToggleGroup;
++        import javafx.scene.image.ImageView;
++
++        import java.net.URL;
++        import java.util.ResourceBundle;
++
++public class NYPizzaController implements Initializable {
++
++    private PizzaFactory factory;
++    private Pizza currentPizza;
++
++    private final Style [] styleOptions = {
++            Style.DELUXE,
++            Style.BBQ,
++            Style.MEATZZA,
++            Style.BYO
++    };
++
++
++    @FXML
++    private TextField crustType;
++
++    @FXML
++    private RadioButton largePizza;
++
++    @FXML
++    private RadioButton mediumPizza;
++
++    @FXML
++    private ImageView nyPizzaImage;
++
++    @FXML
++    private ListView<Topping> opList;
++
++    @FXML
++    private TextField pizzaPrice;
++
++    @FXML
++    private ToggleGroup pizzaSize;
++
++    @FXML
++    private ComboBox<Style> pizzaSyle;
++
++    @FXML
++    private ListView<Topping> selList;
++
++    @FXML
++    private RadioButton smallPizza;
++
++    private ObservableList<Topping> toppings;
++    private ObservableList<Topping> selected;
++
++    @Override
++    public void initialize(URL url, ResourceBundle resourceBundle) {
++        toppings = FXCollections.observableArrayList(Topping.getAll());
++        selected = FXCollections.observableArrayList();
++        selList.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Topping>() {
++            @Override
++            public void changed(ObservableValue<? extends Topping> observableValue, Topping topping, Topping t1) {
++
++            }
++        });
++
++        factory = new NYPizza();
++        currentPizza = factory.createBuildYourOwn();
++
++        opList.setItems(toppings);
++        selList.setItems(selected);
++        pizzaSyle.setValue(Style.BYO);
++        pizzaSyle.getItems().addAll(styleOptions);
++
++    }
++
++    @FXML
++    void addToOrder(ActionEvent event) {
++
++    }
++
++    @FXML
++    void addTopping(ActionEvent event) {
++
++    }
++
++    @FXML
++    void remTopping(ActionEvent event) {
++
++    }
++
++    @FXML
++    void styleSelection(ActionEvent event) {
++        Style currentSelection = pizzaSyle.getValue();
++        switch (currentSelection){
++            case DELUXE -> {
++                currentPizza = factory.createDeluxe();
++                selected = FXCollections.observableArrayList(Topping.getDeluxe());
++            }
++            case BBQ -> {
++                currentPizza = factory.createBBQChicken();
++                selected = FXCollections.observableArrayList(Topping.getBBQ());
++            }
++            case MEATZZA -> {
++                currentPizza = factory.createMeatzza();
++                selected = FXCollections.observableArrayList(Topping.getMeatzza());
++            }
++        }
++
++    }
++
++    void updatePage(Style style){
++
++    }
++
++
++}
++

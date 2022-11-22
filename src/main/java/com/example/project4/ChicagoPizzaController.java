@@ -6,15 +6,12 @@ package com.example.project4;
         import javafx.fxml.FXML;
         import javafx.fxml.Initializable;
         import javafx.scene.control.*;
-        import javafx.scene.image.Image;
         import javafx.scene.image.ImageView;
 
         import java.net.URL;
-        import java.util.Objects;
         import java.util.ResourceBundle;
 
-public class NYPizzaController implements Initializable {
-
+public class ChicagoPizzaController implements Initializable {
     private HomePageController homePageController;
     private PizzaFactory factory;
     private Pizza currentPizza;
@@ -33,7 +30,7 @@ public class NYPizzaController implements Initializable {
     private TextField crustType;
 
     @FXML
-    private ImageView nyPizzaImage;
+    private ImageView chiPizzaImage;
 
     @FXML
     private ListView<Topping> opList;
@@ -55,11 +52,6 @@ public class NYPizzaController implements Initializable {
 
     private ObservableList<Topping> toppings;
     private ObservableList<Topping> selected;
-//
-//    Image delPic = new Image(Objects.requireNonNull(getClass().getResourceAsStream("src/main/java/deluxepic.jpeg")));
-//    Image meatzzaPic = new Image(Objects.requireNonNull(getClass().getResourceAsStream("meatzza.webp")));
-//    Image byoPic = new Image(Objects.requireNonNull(getClass().getResourceAsStream("byo.jpeg")));
-//    Image bbqPic = new Image(Objects.requireNonNull(getClass().getResourceAsStream("bbqchicken.jpeg")));
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -71,7 +63,7 @@ public class NYPizzaController implements Initializable {
         crustType.setEditable(false);
         pizzaPrice.setEditable(false);
 
-        factory = new NYPizza();
+        factory = new ChicagoPizza();
         pizzaSyle.setValue(Style.DELUXE);
 
         updatePage(Style.DELUXE);
@@ -139,21 +131,18 @@ public class NYPizzaController implements Initializable {
                 currentPizza = factory.createDeluxe();
                 selected.removeAll(Topping.getAll());
                 selected.addAll(Topping.getDeluxe());
-//                nyPizzaImage.setImage(delPic);
                 disableButtons();
             }
             case BBQ -> {
                 currentPizza = factory.createBBQChicken();
                 selected.removeAll(Topping.getAll());
                 selected.addAll(Topping.getBBQ());
-//                nyPizzaImage.setImage(bbqPic);
                 disableButtons();
             }
             case MEATZZA -> {
                 currentPizza = factory.createMeatzza();
                 selected.removeAll(Topping.getAll());
                 selected.addAll(Topping.getMeatzza());
-//                nyPizzaImage.setImage(meatzzaPic);
                 disableButtons();
             }
             case BYO -> {
@@ -161,7 +150,6 @@ public class NYPizzaController implements Initializable {
                 toppings.removeAll(Topping.getAll());
                 toppings.addAll(Topping.getAll());
                 selected.removeAll(Topping.getAll());
-//                nyPizzaImage.setImage(byoPic);
                 enableButtons();
             }
             default -> factory.createBuildYourOwn();
@@ -186,4 +174,5 @@ public class NYPizzaController implements Initializable {
         opList.setDisable(false);
     }
 }
+
 

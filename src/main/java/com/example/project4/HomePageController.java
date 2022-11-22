@@ -18,6 +18,9 @@ public class HomePageController implements Initializable {
     StoreOrder storeOrders;
     int orderNums;
 
+    public HomePageController() throws IOException {
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         orderNums = 1;
@@ -29,9 +32,12 @@ public class HomePageController implements Initializable {
     void selectCO(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("CurrentOrder.fxml"));
         Parent root = loader.load();
+        CurrentOrderController currentOrderController = loader.getController();
+        currentOrderController.setHomePageController(this);
+        currentOrderController.populateOrder(currentOrder);
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
-        stage.setTitle("New York Style Pizza");
+        stage.setTitle("Current Order");
         stage.show();
     }
 
@@ -39,18 +45,22 @@ public class HomePageController implements Initializable {
     void selectChiStyle(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("ChicagoPizza.fxml"));
         Parent root = loader.load();
+        ChicagoPizzaController chicagoPizzaController = loader.getController();
+        chicagoPizzaController.setHomePageController(this);
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
-        stage.setTitle("New York Style Pizza");
+        stage.setTitle("Current Order");
         stage.show();
     }
 
     @FXML
     void selectNYS(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("NewYorkPizza.fxml"));
-        Parent root = loader.load();
+        FXMLLoader NYloader = new FXMLLoader(getClass().getResource("NewYorkPizza.fxml"));
+        Parent NYroot = NYloader.load();
+        NYPizzaController nyPizzaController = NYloader.getController();
+        nyPizzaController.setHomePageController(this);
         Stage stage = new Stage();
-        stage.setScene(new Scene(root));
+        stage.setScene(new Scene(NYroot));
         stage.setTitle("New York Style Pizza");
         stage.show();
     }
@@ -59,16 +69,35 @@ public class HomePageController implements Initializable {
     void selectSO(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("StoreOrders.fxml"));
         Parent root = loader.load();
+        StoreOrdersController storeOrdersController = loader.getController();
+        storeOrdersController.setHomePageController(this);
+        storeOrdersController.populateOrders(storeOrders);
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
-        stage.setTitle("New York Style Pizza");
+        stage.setTitle("Store Orders");
         stage.show();
     }
 
     public void addToOrder(Pizza pizza){
-
+        currentOrder.add(pizza);
     }
 
+    public void clearOrder(){
+        currentOrder.clearOrder();
+    }
+
+    public void placeOrder(){
+        storeOrders.add(currentOrder);
+        currentOrder = new Order(orderNums++);
+    }
+
+    public void removePizza(Pizza pizza){
+        currentOrder.remove(pizza);
+    }
+
+    public void cancelOrder(Order order){
+        storeOrders.remove(order);
+    }
 
 
 }
