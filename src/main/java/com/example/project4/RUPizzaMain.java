@@ -14,7 +14,7 @@ import java.util.Objects;
 public class RUPizzaMain extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        Parent home = FXMLLoader.load((Objects.requireNonNull(getClass().getResource("HomePage.fxml"))));
+        Parent home = FXMLLoader.load((Objects.requireNonNull(getClass().getResource("HomePageView.fxml"))));
         Scene homeScene = new Scene(home);
         stage.setTitle("RU Pizzeria");
         stage.setScene(homeScene);

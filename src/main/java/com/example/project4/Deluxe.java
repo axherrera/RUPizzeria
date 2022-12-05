@@ -1,8 +1,10 @@
 package com.example.project4;
 
+import java.util.ArrayList;
+
 public class Deluxe extends Pizza{
 
-    private final Topping[] toppings = {Topping.SAUSAGE, Topping.GREENPEPPER, Topping.MUSHROOM, Topping.ONION, Topping.PEPPERONI};
+    private final ArrayList<Topping> toppings = Topping.getDeluxe();
 
     public Deluxe(){
         super();

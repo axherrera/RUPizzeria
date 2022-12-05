@@ -30,7 +30,7 @@ public class HomePageController implements Initializable {
 
     @FXML
     void selectCO(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("CurrentOrder.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("CurrentOrderView.fxml"));
         Parent root = loader.load();
         CurrentOrderController currentOrderController = loader.getController();
         currentOrderController.setHomePageController(this);
@@ -43,7 +43,7 @@ public class HomePageController implements Initializable {
 
     @FXML
     void selectChiStyle(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("ChicagoPizza.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("ChicagoPizzaView.fxml"));
         Parent root = loader.load();
         ChicagoPizzaController chicagoPizzaController = loader.getController();
         chicagoPizzaController.setHomePageController(this);
@@ -55,7 +55,7 @@ public class HomePageController implements Initializable {
 
     @FXML
     void selectNYS(ActionEvent event) throws IOException {
-        FXMLLoader NYloader = new FXMLLoader(getClass().getResource("NewYorkPizza.fxml"));
+        FXMLLoader NYloader = new FXMLLoader(getClass().getResource("NewYorkPizzaView.fxml"));
         Parent NYroot = NYloader.load();
         NYPizzaController nyPizzaController = NYloader.getController();
         nyPizzaController.setHomePageController(this);
@@ -67,7 +67,7 @@ public class HomePageController implements Initializable {
 
     @FXML
     void selectSO(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("StoreOrders.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("StoreOrdersView.fxml"));
         Parent root = loader.load();
         StoreOrdersController storeOrdersController = loader.getController();
         storeOrdersController.setHomePageController(this);

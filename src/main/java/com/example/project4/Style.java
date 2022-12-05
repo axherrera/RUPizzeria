@@ -1,8 +1,6 @@
 package com.example.project4;
 
 public enum Style {
-    CHI("Chicago"),
-    NY("New York"),
     DELUXE("Deluxe"),
     MEATZZA("Meatzza"),
     BYO("Build Your Own"),
